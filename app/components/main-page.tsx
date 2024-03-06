@@ -18,7 +18,7 @@ const getPinImg = (status: string): string => {
 };
 
 export const MainPage = () => {
-  // const [mapButtonClass, setMapButtonClass] = useState("");
+  const [mapButtonClass, setMapButtonClass] = useState("mapButton");
   const [mapIcon, setMapIcon] = useState("/images/map-icon.png");
   const [animateClass, setAnimateClass] = useState("");
   const [mapImgClass, setMapImgClass] = useState("nodisplay");
@@ -101,7 +101,7 @@ export const MainPage = () => {
           compass with both geographic and philosophical meaning.
         </div>
         <button
-          className="mapButton"
+          className={mapButtonClass}
           onMouseEnter={() => {
             // setMapButtonClass("hidden");
             setMapIcon("/images/map-icon-2.png");
@@ -115,11 +115,12 @@ export const MainPage = () => {
             // animationRef.current?.scrollIntoView();
             setTimeout(() => {
               animationRef.current?.scrollIntoView();
+              setMapButtonClass("nodisplay");
             }, 200);
             setTimeout(() => {
               setMapImgClass("mapImg");
               setPinClass("pin");
-            }, 5000);
+            }, 5200);
           }}
         >
           <div>
