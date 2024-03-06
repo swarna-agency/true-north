@@ -2,13 +2,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 
+html {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Courier Prime", system-ui;
   overflow-x: clip;
   margin: 0;
+  min-height: 100vh;
 }
 
 .opening {
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   background-color: #2d2d2a;
@@ -24,4 +31,174 @@ body {
   text-align: center;
   margin: 0;
   padding-top: 40px;
+}
+
+.opening img {
+  width: 300px;
+  filter: grayscale();
+  transition: all 1s ease;
+}
+
+.opening img:hover {
+  filter: none;
+}
+
+.opening .imgContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.albumButton {
+  border: none;
+  background-color: transparent;
+}
+
+/* Main landing page */
+
+.mainPage {
+  background-color: #2d2d2a;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  width: 80%;
+  padding: 40px 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  justify-content: space-between;
+}
+
+.navlist {
+  width: 80%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+
+  font-family: "Special Elite", system-ui;
+  color: #969696;
+  font-size: 1.2rem;
+}
+
+.navlist li:hover {
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.sectionHero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleAlbum {
+  font-family: "Courier Prime", system-ui;
+  font-size: 100px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #f8d888;
+}
+
+.heroParagraph {
+  font-family: "Abhaya Libre", system-ui;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: #cccccc;
+  width: 50%;
+  max-width: 1000px;
+}
+
+.sectionWave {
+  background-image: url("/images/wave.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 400px;
+}
+
+.sectionDebris {
+  background-image: url("/images/debris-texture.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 400px;
+  position: relative;
+  top: -160px;
+  margin-bottom: -170px;
+}
+
+.sectionMap {
+  background-color: #ffc59a;
+  width: 100%;
+  padding: 40px 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapHeading {
+  font-size: 2.4rem;
+  color: #5d0000;
+  width: 50%;
+  max-width: 1000px;
+}
+
+.mapParagraph {
+  margin: 40px 0;
+  width: 60%;
+  max-width: 1200px;
+  font-family: "Abhaya Libre", system-ui;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 1.5px;
+}
+
+.mapButton {
+  border: none;
+  background-color: transparent;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.mapButton img {
+  /* opacity: 1; */
+  transition: opacity 1s ease-in;
+}
+
+@keyframes zoomMap {
+  0% {
+    background-image: url("/images/map-icon-2.png");
+    background-size: 20vh;
+  }
+  /* 60% {
+    background-image: url("/images/map.png");
+    background-size: 30%;
+  } */
+  100% {
+    background-image: url("/images/map.png");
+    background-size: 95vh;
+  }
+}
+
+.animationContainer {
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.animateMap {
+  animation: zoomMap 5s ease-in;
+  height: 100vh;
+  background-image: url("/images/map.png");
+  background-size: 95vh;
 }
