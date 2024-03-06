@@ -1,10 +1,68 @@
 import { useRef, useState } from "react";
 
+const getPinImg = (status: string): string => {
+  switch (status) {
+    case "default": {
+      return "/images/pin/pin-default.png";
+    }
+    case "active":
+    case "hover": {
+      return "/images/pin/pin-hover.png";
+    }
+    case "visited": {
+      return "/images/pin/pin-visited.png";
+    }
+    default:
+      return "";
+  }
+};
+
 export const MainPage = () => {
   // const [mapButtonClass, setMapButtonClass] = useState("");
   const [mapIcon, setMapIcon] = useState("/images/map-icon.png");
   const [animateClass, setAnimateClass] = useState("");
+  const [mapImgClass, setMapImgClass] = useState("nodisplay");
+  const [pinClass, setPinClass] = useState("nodisplay");
   const animationRef = useRef<HTMLDivElement>(null);
+
+  const initialStatus = {
+    one: "default",
+    two: "default",
+    three: "default",
+  };
+  const [pinStatus, setPinStatus] = useState(initialStatus);
+
+  const hoverPin = (elem: Element) => {
+    if (elem.classList.contains("pinOne") && pinStatus.one !== "visited") {
+      setPinStatus({ ...pinStatus, one: "hover" });
+    } else if (
+      elem.classList.contains("pinTwo") &&
+      pinStatus.two !== "visited"
+    ) {
+      setPinStatus({ ...pinStatus, two: "hover" });
+    } else if (
+      elem.classList.contains("pinThree") &&
+      pinStatus.three !== "visited"
+    ) {
+      setPinStatus({ ...pinStatus, three: "hover" });
+    }
+  };
+
+  const leavePin = (elem: Element) => {
+    if (elem.classList.contains("pinOne") && pinStatus.one !== "visited") {
+      setPinStatus({ ...pinStatus, one: "default" });
+    } else if (
+      elem.classList.contains("pinTwo") &&
+      pinStatus.two !== "visited"
+    ) {
+      setPinStatus({ ...pinStatus, two: "default" });
+    } else if (
+      elem.classList.contains("pinThree") &&
+      pinStatus.three !== "visited"
+    ) {
+      setPinStatus({ ...pinStatus, three: "default" });
+    }
+  };
 
   // useEffect(() => {
   //   isHidden ? setMapButtonClass("hidden") : setMapButtonClass("");
@@ -58,9 +116,10 @@ export const MainPage = () => {
             setTimeout(() => {
               animationRef.current?.scrollIntoView();
             }, 200);
-            // setTimeout(() => {
-            //   setAnimateClass("");
-            // }, 7000);
+            setTimeout(() => {
+              setMapImgClass("mapImg");
+              setPinClass("pin");
+            }, 5000);
           }}
         >
           <div>
@@ -71,7 +130,48 @@ export const MainPage = () => {
         <div
           ref={animationRef}
           className={`animationContainer ${animateClass}`}
-        ></div>
+        >
+          <div className="relative">
+            <img
+              className={mapImgClass}
+              src="/images/map.png"
+              alt="Map of Australia"
+            />
+            <img
+              className={`${pinClass} pinOne`}
+              src={getPinImg(pinStatus.one)}
+              alt=""
+              onMouseEnter={(event) => {
+                event.target instanceof Element ? hoverPin(event.target) : null;
+              }}
+              onMouseLeave={(event) => {
+                event.target instanceof Element ? leavePin(event.target) : null;
+              }}
+            />
+            <img
+              className={`${pinClass} pinTwo`}
+              src={getPinImg(pinStatus.two)}
+              alt=""
+              onMouseEnter={(event) => {
+                event.target instanceof Element ? hoverPin(event.target) : null;
+              }}
+              onMouseLeave={(event) => {
+                event.target instanceof Element ? leavePin(event.target) : null;
+              }}
+            />
+            <img
+              className={`${pinClass} pinThree`}
+              src={getPinImg(pinStatus.three)}
+              alt=""
+              onMouseEnter={(event) => {
+                event.target instanceof Element ? hoverPin(event.target) : null;
+              }}
+              onMouseLeave={(event) => {
+                event.target instanceof Element ? leavePin(event.target) : null;
+              }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

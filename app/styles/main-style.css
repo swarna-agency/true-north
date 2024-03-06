@@ -169,6 +169,14 @@ body {
   opacity: 0;
 }
 
+.nodisplay {
+  display: none;
+}
+
+.relative {
+  position: relative;
+}
+
 .mapButton img {
   /* opacity: 1; */
   transition: opacity 1s ease-in;
@@ -194,11 +202,36 @@ body {
   height: 300px;
   background-repeat: no-repeat;
   background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .animateMap {
   animation: zoomMap 5s ease-in;
   height: 100vh;
-  background-image: url("/images/map.png");
-  background-size: 95vh;
+}
+
+.mapImg {
+  width: 95vh;
+  height: auto;
+}
+
+/* Pins */
+.pin {
+  position: absolute;
+  width: 7vh;
+}
+.pinOne {
+  top: 10vh;
+  right: 41vh;
+}
+.pinTwo {
+  bottom: 20vh;
+  right: 6vh;
+}
+.pinThree {
+  bottom: 35vh;
+  right: 2vh;
 }
