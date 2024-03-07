@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { AudioPlayer } from "./audio-player";
 
 const getPinImg = (status: string): string => {
   switch (status) {
@@ -22,7 +23,9 @@ export const MainPage = () => {
   const [mapIcon, setMapIcon] = useState("/images/map-icon.png");
   const [animateClass, setAnimateClass] = useState("");
   const [mapImgClass, setMapImgClass] = useState("nodisplay");
+  const [mapContainerClass, setMapContainerClass] = useState("");
   const [pinClass, setPinClass] = useState("nodisplay");
+  const [playerClass, setPlayerClass] = useState("nodisplay");
   const animationRef = useRef<HTMLDivElement>(null);
 
   const initialStatus = {
@@ -33,8 +36,11 @@ export const MainPage = () => {
   const [pinStatus, setPinStatus] = useState(initialStatus);
 
   const hoverPin = (elem: Element) => {
+    console.log("mouse hover");
     if (elem.classList.contains("pinOne") && pinStatus.one !== "visited") {
       setPinStatus({ ...pinStatus, one: "hover" });
+      console.log("status ", pinStatus.one);
+      console.log("img ", getPinImg(pinStatus.one));
     } else if (
       elem.classList.contains("pinTwo") &&
       pinStatus.two !== "visited"
@@ -49,6 +55,7 @@ export const MainPage = () => {
   };
 
   const leavePin = (elem: Element) => {
+    console.log("mouse leave");
     if (elem.classList.contains("pinOne") && pinStatus.one !== "visited") {
       setPinStatus({ ...pinStatus, one: "default" });
     } else if (
@@ -132,23 +139,29 @@ export const MainPage = () => {
           ref={animationRef}
           className={`animationContainer ${animateClass}`}
         >
-          <div className="relative">
+          <div className={`relative ${mapContainerClass}`}>
             <img
               className={mapImgClass}
               src="/images/map.png"
               alt="Map of Australia"
             />
-            <img
-              className={`${pinClass} pinOne`}
-              src={getPinImg(pinStatus.one)}
-              alt=""
-              onMouseEnter={(event) => {
-                event.target instanceof Element ? hoverPin(event.target) : null;
+            <button
+              className={`${pinClass} pinButton pinOne`}
+              onClick={() => {
+                setMapContainerClass("mapSlideLeft");
+                setPlayerClass("audioPlayer");
               }}
-              onMouseLeave={(event) => {
-                event.target instanceof Element ? leavePin(event.target) : null;
+              onMouseEnter={() => {
+                // event.target instanceof Element ? hoverPin(event.target) : null;
+                setPinStatus({ ...pinStatus, one: "hover" });
               }}
-            />
+              onMouseLeave={() => {
+                // event.target instanceof Element ? leavePin(event.target) : null;
+                setPinStatus({ ...pinStatus, one: "default" });
+              }}
+            >
+              <img className="pinImg" src={getPinImg(pinStatus.one)} alt="" />
+            </button>
             <img
               className={`${pinClass} pinTwo`}
               src={getPinImg(pinStatus.two)}
@@ -172,6 +185,7 @@ export const MainPage = () => {
               }}
             />
           </div>
+          <AudioPlayer className={playerClass} />
         </div>
       </div>
     </div>

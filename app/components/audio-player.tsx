@@ -1,9 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { HTMLAttributes, useEffect, useRef, useState } from "react";
 import { audioPaths } from "~/data/audio-list";
+import { PauseIcon } from "./icons/pause-icon";
+import { PlayIcon } from "./icons/play-icon";
 
-export const AudioPlayer = () => {
+interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
+  trackNo?: string;
+}
+
+export const AudioPlayer = ({
+  trackNo = "one",
+  className,
+}: AudioPlayerProps) => {
   const [isMute, setIsMute] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const playerRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -16,26 +25,31 @@ export const AudioPlayer = () => {
   }, [isMute, isPlaying]);
 
   return (
-    <div>
+    <div className={className}>
+      <div className="playerImg trackOneImg"></div>
       <audio autoPlay muted loop ref={playerRef}>
-        <source src={audioPaths[1]} type="audio/mp3" />
+        <source src={audioPaths[0]} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
+      <p>The True North</p>
+      <p>Peter Garrett</p>
       <button
         onClick={() => {
           setIsPlaying(!isPlaying);
+          isMute ? setIsMute(false) : null;
         }}
-        className="titleFont"
+        className="titleFont playBtn"
       >
-        {isPlaying ? "pause" : "play"}
+        {isPlaying ? <PauseIcon /> : <PlayIcon />}
       </button>
-      <button
+      {/* <button
         onClick={() => {
           setIsMute(!isMute);
         }}
       >
         {isMute ? "unmute" : "mute"}
-      </button>
+      </button> */}
+      <button className="purchaseBtn">Purchase Full Album</button>
     </div>
   );
 };
