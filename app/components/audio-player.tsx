@@ -1,7 +1,7 @@
 import {
-  Dispatch,
+  // Dispatch,
   HTMLAttributes,
-  SetStateAction,
+  // SetStateAction,
   useEffect,
   useRef,
   useState,
@@ -9,7 +9,8 @@ import {
 import { audioPaths } from "~/data/audio-list";
 import { PauseIcon } from "./icons/pause-icon";
 import { PlayIcon } from "./icons/play-icon";
-import { CloseIcon } from "./icons/close-icon";
+// import { CloseIcon } from "./icons/close-icon";
+import { trackStory } from "~/data/texts";
 
 interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
   trackNo?: string;
@@ -24,6 +25,10 @@ export const AudioPlayer = ({
   const [isMute, setIsMute] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   // const [playerClass, setPlayerClass] = useState(className);
+
+  const [imgOverlayClass, setImgOverlayClass] = useState("");
+  const [descOverlayClass, setDescOverlayClass] = useState("nodisplay");
+
   const playerRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -42,15 +47,46 @@ export const AudioPlayer = ({
   return (
     <div className={className}>
       <div className="playerImg trackOneImg">
-        <button
-          className="playerCloseBtn"
-          onClick={() => {
-            onClose();
-          }}
-        >
-          <img src="/images/player/close.png" alt="Close button" width="40px" />
-          {/* <CloseIcon /> */}
-        </button>
+        <div className={imgOverlayClass}>
+          <button
+            className="playerCloseBtn"
+            onClick={() => {
+              onClose();
+            }}
+          >
+            <img
+              src="/images/player/close.png"
+              alt="Close button"
+              width="40px"
+            />
+            {/* <CloseIcon /> */}
+          </button>
+          <button
+            className="readMoreBtn"
+            onClick={() => {
+              setImgOverlayClass("nodisplay");
+              setDescOverlayClass("descOverlay fadeIn");
+            }}
+          >
+            Read More
+          </button>
+        </div>
+        {/* overlay track story description */}
+        <div className={descOverlayClass}>
+          <button
+            className="closeDescBtn"
+            onClick={() => {
+              setImgOverlayClass("fadeIn");
+              setDescOverlayClass("descOverlay fadeOut");
+              setTimeout(() => {
+                setDescOverlayClass("nodisplay");
+              }, 900);
+            }}
+          >
+            <img src="/images/player/back.png" alt="Back button" width="40px" />
+          </button>
+          <p className="trackStoryTxt">{trackStory[trackNo]}</p>
+        </div>
       </div>
       <audio autoPlay muted loop ref={playerRef}>
         <source src={audioPaths[0]} type="audio/mp3" />
