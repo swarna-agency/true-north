@@ -1,18 +1,29 @@
-import { HTMLAttributes, useEffect, useRef, useState } from "react";
+import {
+  Dispatch,
+  HTMLAttributes,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { audioPaths } from "~/data/audio-list";
 import { PauseIcon } from "./icons/pause-icon";
 import { PlayIcon } from "./icons/play-icon";
+import { CloseIcon } from "./icons/close-icon";
 
 interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
   trackNo?: string;
+  onClose: () => void;
 }
 
 export const AudioPlayer = ({
   trackNo = "one",
   className,
+  onClose,
 }: AudioPlayerProps) => {
   const [isMute, setIsMute] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  // const [playerClass, setPlayerClass] = useState(className);
   const playerRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -24,9 +35,23 @@ export const AudioPlayer = ({
     }
   }, [isMute, isPlaying]);
 
+  // useEffect(() => {
+  //   setPlayerClass(className);
+  // }, [className]);
+
   return (
     <div className={className}>
-      <div className="playerImg trackOneImg"></div>
+      <div className="playerImg trackOneImg">
+        <button
+          className="playerCloseBtn"
+          onClick={() => {
+            onClose();
+          }}
+        >
+          <img src="/images/player/close.png" alt="Close button" width="40px" />
+          {/* <CloseIcon /> */}
+        </button>
+      </div>
       <audio autoPlay muted loop ref={playerRef}>
         <source src={audioPaths[0]} type="audio/mp3" />
         Your browser does not support the audio element.

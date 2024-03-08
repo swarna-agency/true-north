@@ -252,10 +252,15 @@ body {
 }
 
 .justifyCenter {
+  display: flex;
   justify-content: center;
 }
-
+.justifyStart {
+  display: flex;
+  justify-content: flex-start;
+}
 .justifySpaceBetween {
+  display: flex;
   justify-content: space-between;
 }
 
@@ -278,6 +283,20 @@ body {
   transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2)));
   /* transform: translateX(-30px); */
   transition: all 1s ease-in-out;
+}
+@keyframes slideBack {
+  0% {
+    transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2)));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.mapSlideBack {
+  animation: slideBack 1s ease-in-out;
+  /* transform: translateX(calc(((min(100%, 1200px) - 95vh) / 2))); */
+  /* transform: translateX(300px); */
+  /* transition: all 1s ease-in-out; */
 }
 
 /* Pins */
@@ -329,9 +348,18 @@ body {
   animation: fadeIn 1s ease-in;
   font-family: "Urbanist", system-ui;
 }
+.playerCloseBtn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+}
 .playerImg {
   height: 55%;
   width: 100%;
+  position: relative;
 }
 .playerButtons {
   display: flex;
