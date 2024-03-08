@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import { AudioPlayer } from "./audio-player";
+import { ArrowDownIcon } from "./icons/arrow-down-icon";
+import { ArrowHoverIcon } from "./icons/arrow-hover-icon";
 
 const getPinImg = (status: string): string => {
   switch (status) {
@@ -27,7 +29,10 @@ export const MainPage = () => {
   const [mapContainerClass, setMapContainerClass] = useState("");
   const [pinClass, setPinClass] = useState("nodisplay");
   const [playerClass, setPlayerClass] = useState("nodisplay");
+  const [isArrowHover, setIsArrowHover] = useState(false);
+
   const animationRef = useRef<HTMLDivElement>(null);
+  const mapSectionRef = useRef<HTMLDivElement>(null);
 
   const initialStatus = {
     one: "default",
@@ -95,9 +100,25 @@ export const MainPage = () => {
           environment and the sights and sounds of modern Oz.
         </p>
       </div>
-      <div className="sectionWave"></div>
+      <div className="sectionWave">
+        <button
+          className="exploreBtn"
+          onMouseEnter={() => {
+            setIsArrowHover(true);
+          }}
+          onMouseLeave={() => {
+            setIsArrowHover(false);
+          }}
+          onClick={() => {
+            mapSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          {isArrowHover ? <ArrowHoverIcon /> : <ArrowDownIcon />}
+          <span>Explore the True North Sound</span>
+        </button>
+      </div>
       <div className="sectionDebris"></div>
-      <div className="sectionMap">
+      <div className="sectionMap" ref={mapSectionRef}>
         <div className="mapHeading">
           The True North is a musical adventure drawing inspiration from
           Australia’s Top End
