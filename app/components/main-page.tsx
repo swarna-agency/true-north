@@ -22,6 +22,7 @@ export const MainPage = () => {
   const [mapButtonClass, setMapButtonClass] = useState("mapButton");
   const [mapIcon, setMapIcon] = useState("/images/map-icon.png");
   const [animateClass, setAnimateClass] = useState("");
+  const [animationContainer, setAnimationContainer] = useState("justifyCenter");
   const [mapImgClass, setMapImgClass] = useState("nodisplay");
   const [mapContainerClass, setMapContainerClass] = useState("");
   const [pinClass, setPinClass] = useState("nodisplay");
@@ -137,7 +138,7 @@ export const MainPage = () => {
         </button>
         <div
           ref={animationRef}
-          className={`animationContainer ${animateClass}`}
+          className={`animationContainer ${animateClass} ${animationContainer}`}
         >
           <div className={`relative ${mapContainerClass}`}>
             <img
@@ -148,8 +149,12 @@ export const MainPage = () => {
             <button
               className={`${pinClass} pinButton pinOne`}
               onClick={() => {
-                setMapContainerClass("mapSlideLeft");
-                setPlayerClass("audioPlayer");
+                setMapContainerClass("mapBeforeSlide mapSlideLeft");
+                setTimeout(() => {
+                  setMapContainerClass("");
+                  setPlayerClass("playerOpacity audioPlayer");
+                  setAnimationContainer("justifySpaceBetween");
+                }, 1200);
               }}
               onMouseEnter={() => {
                 // event.target instanceof Element ? hoverPin(event.target) : null;

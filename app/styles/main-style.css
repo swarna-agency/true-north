@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 
-html {
+* {
   box-sizing: border-box;
 }
 
@@ -219,14 +219,21 @@ body {
 
 .animationContainer {
   width: 100%;
+  max-width: 1200px;
   height: 300px;
   background-repeat: no-repeat;
   background-position: center;
 
   display: flex;
   align-items: center;
+}
+
+.justifyCenter {
   justify-content: center;
-  column-gap: 60px;
+}
+
+.justifySpaceBetween {
+  justify-content: space-between;
 }
 
 .animateMap {
@@ -240,7 +247,13 @@ body {
   height: auto;
 }
 
+.mapBeforeSlide {
+  width: 100%;
+}
+
 .mapSlideLeft {
+  transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2)));
+  /* transform: translateX(-30px); */
   transition: all 1s ease-in-out;
 }
 
@@ -258,32 +271,48 @@ body {
 }
 .pinOne {
   top: 10vh;
-  right: 41vh;
+  /* right: 41vh; */
+  right: calc((100% - 95vh) / 2 + 41vh);
 }
 .pinTwo {
   bottom: 20vh;
-  right: 6vh;
+  right: calc((100% - 95vh) / 2 + 6vh);
 }
 .pinThree {
   bottom: 35vh;
-  right: 2vh;
+  right: calc((100% - 95vh) / 2 + 2vh);
 }
 
 /* player */
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .audioPlayer {
   height: 70vh;
   width: 50vh;
-  border: solid 2px #000;
+  /* border: solid 2px #000; */
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  animation: fadeIn 1s ease-in;
+  font-family: "Urbanist", system-ui;
 }
 .playerImg {
   height: 55%;
   width: 100%;
+}
+.playerButtons {
+  display: flex;
+  justify-content: space-evenly;
 }
 .playBtn {
   width: 60px;
@@ -292,17 +321,68 @@ body {
   background: rgba(250, 250, 250, 1);
   border: none;
 }
-.purchaseBtn {
-  width: 95%;
+.playerCtrl {
+  /* border: solid 1px #000; */
+  width: 100%;
+  height: 45%;
+  padding: 20px;
+  background: radial-gradient(
+    141.39% 86.82% at 50% 0%,
+    #830606 0%,
+    #000000 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.playerDesc {
+  height: 25%;
+  display: flex;
+}
+.playerDesc img {
+  width: auto;
+}
+.streamBtn {
+  width: 100%;
   height: 48px;
-  margin: 20px 0;
+  margin: 0 auto;
   border-radius: 18px;
   border: solid 0.9px #a6a6a6;
   background: rgba(0, 0, 0, 0.8);
   color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .trackOneImg {
-  background-image: url("/images/player/01-img.png");
+  background: url("/images/player/01-img.png"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   background-size: auto 100%;
   background-position: center;
+  /* background-color: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%); */
+  background-blend-mode: multiply;
+}
+
+.trackTitle {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 10px;
+}
+.trackTitle p,
+.trackTitle h2 {
+  margin: 0;
+}
+
+.trackTitle p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.trackTitle h2 {
+  font-size: 1.2rem;
+  color: #fff;
 }

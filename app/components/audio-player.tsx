@@ -31,25 +31,42 @@ export const AudioPlayer = ({
         <source src={audioPaths[0]} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
-      <p>The True North</p>
-      <p>Peter Garrett</p>
-      <button
-        onClick={() => {
-          setIsPlaying(!isPlaying);
-          isMute ? setIsMute(false) : null;
-        }}
-        className="titleFont playBtn"
-      >
-        {isPlaying ? <PauseIcon /> : <PlayIcon />}
-      </button>
-      {/* <button
+      <div className="playerCtrl">
+        <div className="playerDesc">
+          <img src="/images/cd-cover.png" alt="" />
+          <div className="trackTitle">
+            <h2>The True North</h2>
+            <p>Peter Garrett</p>
+          </div>
+        </div>
+
+        <div className="playerButtons">
+          <button
+            onClick={() => {
+              setIsPlaying(!isPlaying);
+              isMute ? setIsMute(false) : null;
+            }}
+            className="titleFont playBtn"
+          >
+            {isPlaying ? <PauseIcon /> : <PlayIcon />}
+          </button>
+        </div>
+        {/* <button
         onClick={() => {
           setIsMute(!isMute);
         }}
       >
         {isMute ? "unmute" : "mute"}
       </button> */}
-      <button className="purchaseBtn">Purchase Full Album</button>
+        <a
+          className="streamBtn"
+          href="https://petergarrett.lnk.to/TTNAlbum"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Stream Album Now
+        </a>
+      </div>
     </div>
   );
 };

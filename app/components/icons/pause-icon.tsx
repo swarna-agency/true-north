@@ -1,17 +1,27 @@
 export const PauseIcon = () => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
       fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-6 h-6"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15.75 5.25v13.5m-7.5-13.5v13.5"
+      <rect
+        x="4.75"
+        y="4.25"
+        width="6.75"
+        height="20.25"
+        rx="2.25"
+        fill="black"
+      />
+      <rect
+        x="16"
+        y="4.25"
+        width="6.75"
+        height="20.25"
+        rx="2.25"
+        fill="black"
       />
     </svg>
   );
