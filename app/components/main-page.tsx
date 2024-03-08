@@ -110,7 +110,7 @@ export const MainPage = () => {
             setIsArrowHover(false);
           }}
           onClick={() => {
-            mapSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+            mapSectionRef.current?.scrollIntoView();
           }}
         >
           {isArrowHover ? <ArrowHoverIcon /> : <ArrowDownIcon />}
