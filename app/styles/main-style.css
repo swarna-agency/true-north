@@ -370,6 +370,27 @@ body {
   position: relative;
   padding: 20px;
 }
+.trackoneImg {
+  background: url("/images/player/01-img.png"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: auto 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.tracktwoImg {
+  background: url("/images/player/02-img.jpg"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: auto 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.trackthreeImg {
+  background: url("/images/player/03-img.jpeg"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: auto 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+}
 .playerButtons {
   display: flex;
   justify-content: space-evenly;
@@ -450,14 +471,6 @@ body {
 .streamBtn:hover {
   background: #d60f0f;
   color: #fff;
-}
-.trackOneImg {
-  background: url("/images/player/01-img.png"),
-    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  background-size: auto 100%;
-  background-position: center;
-  /* background-color: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%); */
-  background-blend-mode: multiply;
 }
 
 .trackTitle {

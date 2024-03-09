@@ -10,7 +10,7 @@ import { audioPaths } from "~/data/audio-list";
 import { PauseIcon } from "./icons/pause-icon";
 import { PlayIcon } from "./icons/play-icon";
 // import { CloseIcon } from "./icons/close-icon";
-import { trackStory } from "~/data/texts";
+import { trackStory, trackTitles } from "~/data/texts";
 
 interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
   trackNo?: string;
@@ -46,7 +46,7 @@ export const AudioPlayer = ({
 
   return (
     <div className={className}>
-      <div className="playerImg trackOneImg">
+      <div className={`playerImg track${trackNo}Img`}>
         <div className={imgOverlayClass}>
           <button
             className="playerCloseBtn"
@@ -89,14 +89,14 @@ export const AudioPlayer = ({
         </div>
       </div>
       <audio autoPlay muted loop ref={playerRef}>
-        <source src={audioPaths[0]} type="audio/mp3" />
+        <source src={audioPaths[trackNo]} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
       <div className="playerCtrl">
         <div className="playerDesc">
           <img src="/images/cd-cover.png" alt="" />
           <div className="trackTitle">
-            <h2>The True North</h2>
+            <h2>{trackTitles[trackNo]}</h2>
             <p>Peter Garrett</p>
           </div>
         </div>

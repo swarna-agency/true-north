@@ -27,74 +27,99 @@ export const MainPage = () => {
   const [animationContainer, setAnimationContainer] = useState("justifyCenter");
   const [mapImgClass, setMapImgClass] = useState("nodisplay");
   const [mapContainerClass, setMapContainerClass] = useState("");
+  const [isArrowHover, setIsArrowHover] = useState(false);
+
   const [pinClass, setPinClass] = useState("nodisplay");
   const [playerClass, setPlayerClass] = useState("nodisplay");
-  const [isArrowHover, setIsArrowHover] = useState(false);
+  const [activePin, setActivePin] = useState("");
 
   const animationRef = useRef<HTMLDivElement>(null);
   const mapSectionRef = useRef<HTMLDivElement>(null);
 
-  const initialStatus = {
+  const initialStatus: { [char: string]: string } = {
     one: "default",
     two: "default",
     three: "default",
   };
   const [pinStatus, setPinStatus] = useState(initialStatus);
 
-  const hoverPin = (elem: Element) => {
-    console.log("mouse hover");
-    if (elem.classList.contains("pinOne") && pinStatus.one !== "visited") {
-      setPinStatus({ ...pinStatus, one: "hover" });
-      console.log("status ", pinStatus.one);
-      console.log("img ", getPinImg(pinStatus.one));
-    } else if (
-      elem.classList.contains("pinTwo") &&
-      pinStatus.two !== "visited"
-    ) {
-      setPinStatus({ ...pinStatus, two: "hover" });
-    } else if (
-      elem.classList.contains("pinThree") &&
-      pinStatus.three !== "visited"
-    ) {
-      setPinStatus({ ...pinStatus, three: "hover" });
-    }
-  };
+  // const hoverPin = (elem: Element) => {
+  //   console.log("mouse hover");
+  //   if (elem.classList.contains("pinOne") && pinStatus["one"] !== "visited") {
+  //     setPinStatus({ ...pinStatus, one: "hover" });
+  //   } else if (
+  //     elem.classList.contains("pinTwo") &&
+  //     pinStatus.two !== "visited"
+  //   ) {
+  //     setPinStatus({ ...pinStatus, two: "hover" });
+  //   } else if (
+  //     elem.classList.contains("pinThree") &&
+  //     pinStatus.three !== "visited"
+  //   ) {
+  //     setPinStatus({ ...pinStatus, three: "hover" });
+  //   }
+  // };
 
-  const leavePin = (elem: Element) => {
-    console.log("mouse leave");
-    if (elem.classList.contains("pinOne") && pinStatus.one !== "visited") {
-      setPinStatus({ ...pinStatus, one: "default" });
-    } else if (
-      elem.classList.contains("pinTwo") &&
-      pinStatus.two !== "visited"
-    ) {
-      setPinStatus({ ...pinStatus, two: "default" });
-    } else if (
-      elem.classList.contains("pinThree") &&
-      pinStatus.three !== "visited"
-    ) {
-      setPinStatus({ ...pinStatus, three: "default" });
-    }
-  };
+  // const leavePin = (elem: Element) => {
+  //   console.log("mouse leave");
+  //   if (elem.classList.contains("pinOne") && pinStatus.one !== "visited") {
+  //     setPinStatus({ ...pinStatus, one: "default" });
+  //   } else if (
+  //     elem.classList.contains("pinTwo") &&
+  //     pinStatus.two !== "visited"
+  //   ) {
+  //     setPinStatus({ ...pinStatus, two: "default" });
+  //   } else if (
+  //     elem.classList.contains("pinThree") &&
+  //     pinStatus.three !== "visited"
+  //   ) {
+  //     setPinStatus({ ...pinStatus, three: "default" });
+  //   }
+  // };
 
   const closePlayer = () => {
     setAnimationContainer("justifyStart");
-    setPinStatus({ ...pinStatus, one: "visited" });
+    setPinStatus({ ...pinStatus, [activePin]: "visited" });
+    setActivePin("");
     setPlayerClass("nodisplay");
-    // setMapContainerClass("mapBeforeSlide");
-    // setTimeout(() => {
     setMapContainerClass("mapBeforeSlide mapSlideBack");
-    // }, 100);
-    // setTimeout(() => {
-    // setMapContainerClass("mapBeforeSlide");
-    // setAnimationContainer("justifyCenter");
-    // }, 1200);
   };
 
-  // useEffect(() => {
-  //   isHidden ? setMapButtonClass("hidden") : setMapButtonClass("");
-  //   console.log(isHidden);
-  // }, [isHidden]);
+  const onClickPin = (trackNo: string) => {
+    if (pinStatus[trackNo] !== "active") {
+      if (activePin === "") {
+        setMapContainerClass("mapBeforeSlide mapSlideLeft");
+        setPinStatus({ ...pinStatus, [trackNo]: "active" });
+        setActivePin(trackNo);
+        setTimeout(() => {
+          setMapContainerClass("");
+          setPlayerClass("audioPlayer");
+          setAnimationContainer("justifySpaceBetween");
+        }, 1200);
+      }
+      // audio player is open on another track
+      else {
+        setPinStatus({
+          ...pinStatus,
+          [activePin]: "visited",
+          [trackNo]: "active",
+        });
+        setActivePin(trackNo);
+        setPlayerClass("hidden");
+        setTimeout(() => {
+          // setMapContainerClass("");
+          setPlayerClass("audioPlayer");
+          // setAnimationContainer("justifySpaceBetween");
+        }, 200);
+      }
+    }
+  };
+
+  const changeStatus = (trackNo: string, newStatus: string) => {
+    if (pinStatus[trackNo] !== "visited" && pinStatus[trackNo] !== "active") {
+      setPinStatus({ ...pinStatus, [trackNo]: newStatus });
+    }
+  };
 
   return (
     <div className="mainPage">
@@ -184,55 +209,57 @@ export const MainPage = () => {
             <button
               className={`${pinClass} pinButton pinOne`}
               onClick={() => {
-                if (pinStatus.one !== "active") {
-                  setMapContainerClass("mapBeforeSlide mapSlideLeft");
-                  setPinStatus({ ...pinStatus, one: "active" });
-                  setTimeout(() => {
-                    setMapContainerClass("");
-                    setPlayerClass("playerOpacity audioPlayer");
-                    setAnimationContainer("justifySpaceBetween");
-                  }, 1200);
-                }
+                onClickPin("one");
               }}
               onMouseEnter={() => {
-                // event.target instanceof Element ? hoverPin(event.target) : null;
-                if (pinStatus.one !== "visited" && pinStatus.one !== "active") {
-                  setPinStatus({ ...pinStatus, one: "hover" });
-                }
+                changeStatus("one", "hover");
+                // if (pinStatus.one !== "visited" && pinStatus.one !== "active") {
+                //   setPinStatus({ ...pinStatus, one: "hover" });
+                // }
               }}
               onMouseLeave={() => {
-                // event.target instanceof Element ? leavePin(event.target) : null;
-                if (pinStatus.one !== "visited" && pinStatus.one !== "active") {
-                  setPinStatus({ ...pinStatus, one: "default" });
-                }
+                changeStatus("one", "default");
+                // if (pinStatus.one !== "visited" && pinStatus.one !== "active") {
+                //   setPinStatus({ ...pinStatus, one: "default" });
+                // }
               }}
             >
               <img className="pinImg" src={getPinImg(pinStatus.one)} alt="" />
             </button>
-            <img
-              className={`${pinClass} pinTwo`}
-              src={getPinImg(pinStatus.two)}
-              alt=""
-              onMouseEnter={(event) => {
-                event.target instanceof Element ? hoverPin(event.target) : null;
+            <button
+              className={`${pinClass} pinButton pinTwo`}
+              onClick={() => {
+                onClickPin("two");
               }}
-              onMouseLeave={(event) => {
-                event.target instanceof Element ? leavePin(event.target) : null;
+              onMouseEnter={() => {
+                changeStatus("two", "hover");
               }}
-            />
-            <img
-              className={`${pinClass} pinThree`}
-              src={getPinImg(pinStatus.three)}
-              alt=""
-              onMouseEnter={(event) => {
-                event.target instanceof Element ? hoverPin(event.target) : null;
+              onMouseLeave={() => {
+                changeStatus("two", "default");
               }}
-              onMouseLeave={(event) => {
-                event.target instanceof Element ? leavePin(event.target) : null;
+            >
+              <img className="pinImg" src={getPinImg(pinStatus.two)} alt="" />
+            </button>
+            <button
+              className={`${pinClass} pinButton pinThree`}
+              onClick={() => {
+                onClickPin("three");
               }}
-            />
+              onMouseEnter={() => {
+                changeStatus("three", "hover");
+              }}
+              onMouseLeave={() => {
+                changeStatus("three", "default");
+              }}
+            >
+              <img className="pinImg" src={getPinImg(pinStatus.three)} alt="" />
+            </button>
           </div>
-          <AudioPlayer className={playerClass} onClose={closePlayer} />
+          <AudioPlayer
+            trackNo={activePin}
+            className={playerClass}
+            onClose={closePlayer}
+          />
         </div>
       </div>
     </div>
