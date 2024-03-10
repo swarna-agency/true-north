@@ -20,7 +20,6 @@ export default function Index() {
   return (
     <div>
       {hasEntered ? <MainPage /> : <Opening enterSite={setHasEntered} />}
-      {/* <AudioPlayer /> */}
     </div>
   );
 }

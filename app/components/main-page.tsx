@@ -68,6 +68,7 @@ export const MainPage = () => {
         setMapContainerClass("mapBeforeSlide mapSlideLeft");
         setPinStatus({ ...pinStatus, [trackNo]: "active" });
         setActivePin(trackNo);
+        // setPlayerClass("audioPlayer");
         setTimeout(() => {
           setMapContainerClass("");
           setPlayerClass("audioPlayer");
@@ -105,9 +106,43 @@ export const MainPage = () => {
       <nav className="navbar">
         <img src="/images/logo-white.png" alt="Website Logo" />
         <ul className="navlist">
-          <li>Home</li>
-          <li>News</li>
-          <li>Tour</li>
+          <li>
+            <button
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              Home
+            </button>
+          </li>
+          <li>
+            <a
+              href="https://petergarrett.com.au/news/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              News
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://petergarrett.com.au/tour/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Tour
+            </a>
+          </li>
+          <li>
+            <a
+              className="purchaseBtn"
+              href="https://petergarrett.lnk.to/TTNAlbum"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Purchase Now
+            </a>
+          </li>
         </ul>
       </nav>
       <div className="sectionHero">
@@ -250,6 +285,30 @@ export const MainPage = () => {
             setIsPlaying={setIsPlaying}
           />
         </div>
+      </div>
+      <div className="sectionFooter">
+        <div>
+          <span style={{ fontWeight: "700" }}>© Peter Garrett 2024</span>
+          <span>
+            <a
+              href="https://petergarrett.com.au/privacy-policy/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Privacy Policy
+            </a>
+          </span>
+          <span>
+            <a
+              href="https://petergarrett.com.au/contact/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Contact
+            </a>
+          </span>
+        </div>
+        <div></div>
       </div>
     </div>
   );
