@@ -1,49 +1,79 @@
 import {
-  // Dispatch,
+  Dispatch,
   HTMLAttributes,
-  // SetStateAction,
+  SetStateAction,
   useEffect,
   useRef,
-  useState,
+  // useState,
 } from "react";
 import { audioPaths } from "~/data/audio-list";
 import { PauseIcon } from "./icons/pause-icon";
 import { PlayIcon } from "./icons/play-icon";
-// import { CloseIcon } from "./icons/close-icon";
 import { trackStory, trackTitles } from "~/data/texts";
 
 interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
   trackNo?: string;
   onClose: () => void;
+  // isReset: boolean;
+  imgOverlayClass: string;
+  setImgOverlayClass: Dispatch<SetStateAction<string>>;
+  descOverlayClass: string;
+  setDescOverlayClass: Dispatch<SetStateAction<string>>;
+  bottomOverlay: string;
+  setBottomOverlay: Dispatch<SetStateAction<string>>;
+
+  // isMute: boolean;
+  // setIsMute: Dispatch<SetStateAction<boolean>>;
+  isPlaying: boolean;
+  setIsPlaying: Dispatch<SetStateAction<boolean>>;
 }
 
 export const AudioPlayer = ({
   trackNo = "one",
   className,
   onClose,
-}: AudioPlayerProps) => {
-  const [isMute, setIsMute] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(false);
-  // const [playerClass, setPlayerClass] = useState(className);
+  imgOverlayClass,
+  setImgOverlayClass,
+  descOverlayClass,
+  setDescOverlayClass,
+  bottomOverlay,
+  setBottomOverlay,
 
-  const [imgOverlayClass, setImgOverlayClass] = useState("");
-  const [descOverlayClass, setDescOverlayClass] = useState("nodisplay");
+  // isMute,
+  // setIsMute,
+  isPlaying,
+  setIsPlaying,
+}: AudioPlayerProps) => {
+  // const [isMute, setIsMute] = useState(true);
+  // const [isPlaying, setIsPlaying] = useState(false);
 
   const playerRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (playerRef && playerRef.current) {
-      isMute
-        ? (playerRef.current.muted = true)
-        : (playerRef.current.muted = false);
-      isPlaying ? playerRef.current.play() : playerRef.current.pause();
+      // isMute
+      //   ? (playerRef.current.muted = true)
+      //   : (playerRef.current.muted = false);
+      isPlaying
+        ? playerRef.current
+            .play()
+            .then(() => {
+              if (playerRef.current?.muted) {
+                playerRef.current.muted = false;
+              }
+            })
+            .catch((e) => {
+              console.log(e);
+            })
+        : !playerRef.current.paused
+        ? playerRef.current.pause()
+        : null;
+      // console.log(audioPaths[trackNo]);
+      // console.log("play ", isPlaying);
+
+      // console.log("mute", isMute);
     }
-  }, [isMute, isPlaying]);
-
-  // useEffect(() => {
-  //   setPlayerClass(className);
-  // }, [className]);
-
+  }, [isPlaying]);
   return (
     <div className={className}>
       <div className={`playerImg track${trackNo}Img`}>
@@ -51,6 +81,7 @@ export const AudioPlayer = ({
           <button
             className="playerCloseBtn"
             onClick={() => {
+              // setIsPlaying(false);
               onClose();
             }}
           >
@@ -59,7 +90,6 @@ export const AudioPlayer = ({
               alt="Close button"
               width="40px"
             />
-            {/* <CloseIcon /> */}
           </button>
           <button
             className="readMoreBtn"
@@ -88,45 +118,101 @@ export const AudioPlayer = ({
           <p className="trackStoryTxt">{trackStory[trackNo]}</p>
         </div>
       </div>
-      <audio autoPlay muted loop ref={playerRef}>
-        <source src={audioPaths[trackNo]} type="audio/mp3" />
-        Your browser does not support the audio element.
+      <audio muted loop ref={playerRef} src={audioPaths[trackNo]}>
+        {/* <source src={audioPaths[trackNo]} type="audio/mp3" />
+        Your browser does not support the audio element. */}
       </audio>
       <div className="playerCtrl">
-        <div className="playerDesc">
-          <img src="/images/cd-cover.png" alt="" />
-          <div className="trackTitle">
-            <h2>{trackTitles[trackNo]}</h2>
-            <p>Peter Garrett</p>
-          </div>
-        </div>
+        {bottomOverlay === "default" ? (
+          <>
+            <div className="playerDesc">
+              <div className="flexrow width75">
+                <img src="/images/cd-cover.png" alt="Album cover" />
+                <div className="trackTitle">
+                  <h2>{trackTitles[trackNo]}</h2>
+                  <p>Peter Garrett</p>
+                </div>
+              </div>
+              <div className="moreButtons">
+                <button
+                  className="btnInfo"
+                  onClick={() => {
+                    setBottomOverlay("info");
+                  }}
+                >
+                  <img alt="Info button" src="/images/player/info.png" />
+                </button>
+                <button
+                  className="btnShare"
+                  onClick={() => {
+                    setBottomOverlay("share");
+                  }}
+                >
+                  <img alt="Share button" src="/images/player/share.png" />
+                </button>
+              </div>
+            </div>
 
-        <div className="playerButtons">
-          <button
-            onClick={() => {
-              setIsPlaying(!isPlaying);
-              isMute ? setIsMute(false) : null;
-            }}
-            className="titleFont playBtn"
-          >
-            {isPlaying ? <PauseIcon /> : <PlayIcon />}
-          </button>
-        </div>
-        {/* <button
+            <div className="playerButtons">
+              <button
+                onClick={() => {
+                  setIsPlaying(!isPlaying);
+                  // isMute ? setIsMute(false) : null;
+                }}
+                className="titleFont playBtn"
+              >
+                {isPlaying ? <PauseIcon /> : <PlayIcon />}
+              </button>
+            </div>
+            {/* <button
         onClick={() => {
           setIsMute(!isMute);
         }}
       >
         {isMute ? "unmute" : "mute"}
       </button> */}
-        <a
-          className="streamBtn"
-          href="https://petergarrett.lnk.to/TTNAlbum"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Stream Album Now
-        </a>
+            <a
+              className="streamBtn"
+              href="https://petergarrett.lnk.to/TTNAlbum"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Stream Album Now
+            </a>
+          </>
+        ) : bottomOverlay === "info" ? (
+          <div className="bottomLayer">
+            <button
+              className="btnBottomClose"
+              onClick={() => {
+                setBottomOverlay("default");
+              }}
+            >
+              <img
+                src="/images/player/back.png"
+                alt="Back button"
+                width="40px"
+              />
+            </button>
+            Track info here
+          </div>
+        ) : (
+          <div className="bottomLayer">
+            <button
+              className="btnBottomClose"
+              onClick={() => {
+                setBottomOverlay("default");
+              }}
+            >
+              <img
+                src="/images/player/back.png"
+                alt="Back button"
+                width="40px"
+              />
+            </button>
+            Share buttons here
+          </div>
+        )}
       </div>
     </div>
   );

@@ -14,6 +14,13 @@ body {
   min-height: 100vh;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
 .opening {
   display: flex;
   flex-direction: column;
@@ -53,10 +60,10 @@ body {
   align-items: center;
 }
 
-.albumButton {
+/* .albumButton {
   border: none;
   background-color: transparent;
-}
+} */
 
 /* Main landing page */
 
@@ -132,10 +139,10 @@ body {
   position: relative;
   top: -16px;
   text-decoration: none;
-  cursor: pointer;
+  /* cursor: pointer;
 
   border: none;
-  background-color: transparent;
+  background-color: transparent; */
 }
 .exploreBtn span {
   margin-top: 8px;
@@ -203,10 +210,10 @@ body {
   letter-spacing: 1.5px;
 }
 
-.mapButton {
+/* .mapButton {
   border: none;
   background-color: transparent;
-}
+} */
 
 .hidden {
   opacity: 0;
@@ -218,6 +225,16 @@ body {
 
 .relative {
   position: relative;
+}
+.flexrow {
+  display: flex;
+}
+.flexcol {
+  display: flex;
+  flex-direction: column;
+}
+.width75 {
+  max-width: 75%;
 }
 
 .mapButton img {
@@ -301,9 +318,9 @@ body {
 
 /* Pins */
 .pinButton {
-  border: none;
   border-radius: 50%;
-  background-color: transparent;
+  /* background-color: transparent;
+  border: none; */
 }
 .pinImg {
   width: 7vh;
@@ -346,7 +363,7 @@ body {
 
 .audioPlayer {
   height: 70vh;
-  width: 52vh;
+  width: 54vh;
   /* border: solid 2px #000; */
   border-radius: 30px;
   display: flex;
@@ -357,12 +374,12 @@ body {
   font-family: "Urbanist", system-ui;
 }
 .playerCloseBtn {
-  border: none;
+  /* border: none;
   background-color: transparent;
+  cursor: pointer; */
   position: absolute;
   top: 20px;
   right: 12px;
-  cursor: pointer;
 }
 .playerImg {
   height: 55%;
@@ -420,10 +437,29 @@ body {
 }
 .playerDesc {
   height: 25%;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
 }
 .playerDesc img {
   width: auto;
+}
+.moreButtons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+.moreButtons button {
+  height: 42px;
+  /* padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent; */
+}
+.btnInfo img,
+.btnShare img {
+  height: 100%;
 }
 .readMoreBtn {
   position: absolute;
@@ -479,7 +515,7 @@ body {
   width: 70%;
   justify-content: space-evenly;
   align-items: flex-start;
-  padding-left: 10px;
+  padding-left: 8px;
 }
 .trackTitle p,
 .trackTitle h2 {
@@ -511,12 +547,12 @@ body {
 }
 
 .closeDescBtn {
-  border: none;
+  /* border: none;
   background-color: transparent;
+  cursor: pointer; */
   position: absolute;
   top: 20px;
   left: 12px;
-  cursor: pointer;
 }
 
 .trackStoryTxt {
@@ -527,4 +563,18 @@ body {
 
   width: 65%;
   margin: 30px auto 0;
+}
+
+.bottomLayer {
+  position: relative;
+  background: rgba(1, 1, 1, 0.3);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.btnBottomClose {
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

@@ -43,39 +43,12 @@ export const MainPage = () => {
   };
   const [pinStatus, setPinStatus] = useState(initialStatus);
 
-  // const hoverPin = (elem: Element) => {
-  //   console.log("mouse hover");
-  //   if (elem.classList.contains("pinOne") && pinStatus["one"] !== "visited") {
-  //     setPinStatus({ ...pinStatus, one: "hover" });
-  //   } else if (
-  //     elem.classList.contains("pinTwo") &&
-  //     pinStatus.two !== "visited"
-  //   ) {
-  //     setPinStatus({ ...pinStatus, two: "hover" });
-  //   } else if (
-  //     elem.classList.contains("pinThree") &&
-  //     pinStatus.three !== "visited"
-  //   ) {
-  //     setPinStatus({ ...pinStatus, three: "hover" });
-  //   }
-  // };
+  const [imgOverlayClass, setImgOverlayClass] = useState("");
+  const [descOverlayClass, setDescOverlayClass] = useState("nodisplay");
+  const [bottomOverlay, setBottomOverlay] = useState("default");
 
-  // const leavePin = (elem: Element) => {
-  //   console.log("mouse leave");
-  //   if (elem.classList.contains("pinOne") && pinStatus.one !== "visited") {
-  //     setPinStatus({ ...pinStatus, one: "default" });
-  //   } else if (
-  //     elem.classList.contains("pinTwo") &&
-  //     pinStatus.two !== "visited"
-  //   ) {
-  //     setPinStatus({ ...pinStatus, two: "default" });
-  //   } else if (
-  //     elem.classList.contains("pinThree") &&
-  //     pinStatus.three !== "visited"
-  //   ) {
-  //     setPinStatus({ ...pinStatus, three: "default" });
-  //   }
-  // };
+  // const [isMute, setIsMute] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const closePlayer = () => {
     setAnimationContainer("justifyStart");
@@ -83,6 +56,9 @@ export const MainPage = () => {
     setActivePin("");
     setPlayerClass("nodisplay");
     setMapContainerClass("mapBeforeSlide mapSlideBack");
+    setIsPlaying(false);
+    setBottomOverlay("default");
+    // setIsMute(true);
   };
 
   const onClickPin = (trackNo: string) => {
@@ -99,6 +75,8 @@ export const MainPage = () => {
       }
       // audio player is open on another track
       else {
+        setIsPlaying(false);
+        setBottomOverlay("default");
         setPinStatus({
           ...pinStatus,
           [activePin]: "visited",
@@ -106,10 +84,10 @@ export const MainPage = () => {
         });
         setActivePin(trackNo);
         setPlayerClass("hidden");
+        setImgOverlayClass("");
+        setDescOverlayClass("nodisplay");
         setTimeout(() => {
-          // setMapContainerClass("");
           setPlayerClass("audioPlayer");
-          // setAnimationContainer("justifySpaceBetween");
         }, 200);
       }
     }
@@ -259,6 +237,16 @@ export const MainPage = () => {
             trackNo={activePin}
             className={playerClass}
             onClose={closePlayer}
+            imgOverlayClass={imgOverlayClass}
+            setImgOverlayClass={setImgOverlayClass}
+            descOverlayClass={descOverlayClass}
+            setDescOverlayClass={setDescOverlayClass}
+            bottomOverlay={bottomOverlay}
+            setBottomOverlay={setBottomOverlay}
+            // isMute={isMute}
+            // setIsMute={setIsMute}
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
           />
         </div>
       </div>
