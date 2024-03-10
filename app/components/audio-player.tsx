@@ -4,7 +4,7 @@ import {
   SetStateAction,
   useEffect,
   useRef,
-  // useState,
+  useState,
 } from "react";
 import { audioPaths } from "~/data/audio-list";
 import { PauseIcon } from "./icons/pause-icon";
@@ -28,6 +28,10 @@ interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
   setIsPlaying: Dispatch<SetStateAction<boolean>>;
 }
 
+const getProgressWidth = (progress: number) => {
+  return Math.floor((progress / 30) * 100) + 1;
+};
+
 export const AudioPlayer = ({
   trackNo = "one",
   className,
@@ -46,6 +50,8 @@ export const AudioPlayer = ({
 }: AudioPlayerProps) => {
   // const [isMute, setIsMute] = useState(true);
   // const [isPlaying, setIsPlaying] = useState(false);
+
+  const [progress, setProgress] = useState(0);
 
   const playerRef = useRef<HTMLAudioElement>(null);
 
@@ -118,7 +124,19 @@ export const AudioPlayer = ({
           <p className="trackStoryTxt">{trackStory[trackNo]}</p>
         </div>
       </div>
-      <audio muted loop ref={playerRef} src={audioPaths[trackNo]}>
+      <audio
+        muted
+        loop
+        ref={playerRef}
+        src={audioPaths[trackNo]}
+        onTimeUpdate={() => {
+          setProgress(
+            playerRef.current?.currentTime
+              ? Math.floor(playerRef.current?.currentTime)
+              : 0
+          );
+        }}
+      >
         {/* <source src={audioPaths[trackNo]} type="audio/mp3" />
         Your browser does not support the audio element. */}
       </audio>
@@ -152,7 +170,36 @@ export const AudioPlayer = ({
                 </button>
               </div>
             </div>
-
+            <div>
+              <div className="bar">
+                <div
+                  className="progressBar"
+                  style={{ width: `${getProgressWidth(progress)}%` }}
+                >
+                  <div className="circlePoint">
+                    <div className="circleShadow" />
+                  </div>
+                </div>
+              </div>
+              <div className="timeTxt">
+                <span>
+                  0:{progress < 10 ? "0" : ""}
+                  {progress}
+                </span>
+                <span>
+                  0:
+                  {typeof playerRef.current?.duration !== "undefined"
+                    ? Math.floor(playerRef.current?.duration)
+                    : "00"}
+                </span>
+              </div>
+              {/* Current time: {progress < 10 ? "0" : ""}
+              {progress}
+              Total duration: 0:
+              {typeof playerRef.current?.duration !== "undefined"
+                ? Math.floor(playerRef.current?.duration)
+                : "00"} */}
+            </div>
             <div className="playerButtons">
               <button
                 onClick={() => {

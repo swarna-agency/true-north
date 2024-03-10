@@ -48,6 +48,7 @@ export const MainPage = () => {
   const [bottomOverlay, setBottomOverlay] = useState("default");
 
   // const [isMute, setIsMute] = useState(true);
+  // const [totalDuration, setTotalDuratio] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const closePlayer = () => {
