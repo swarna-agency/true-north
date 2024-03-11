@@ -29,6 +29,10 @@ button {
   background-color: #2d2d2a;
   margin: 0;
   overflow: hidden;
+  background: url("/images/bg/texture-2.png"), rgba(45, 45, 42, 1);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .titleName {
