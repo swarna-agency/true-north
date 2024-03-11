@@ -497,6 +497,10 @@ button {
   width: 100%;
   position: relative;
   padding: 20px;
+  background-position: center;
+  background-blend-mode: multiply;
+  background-size: auto 100%, 100%;
+  background-repeat: no-repeat;
 }
 .imgTxtDiv {
   width: 100%;
@@ -551,67 +555,44 @@ button {
   border: solid 1px #2a2a2a;
 }
 .trackoneImg {
-  background: url("/images/player/01-img.png"),
+  background-image: url("/images/player/01-img.jpg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  background-size: auto 100%;
-  background-position: center;
-  background-blend-mode: multiply;
 }
 .tracktwoImg {
-  background: url("/images/player/02-img.jpg"),
+  background-image: url("/images/player/02-img.jpg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  background-size: auto 100%;
-  background-position: center;
-  background-blend-mode: multiply;
 }
 .trackthreeImg {
-  background: url("/images/player/03-img.jpeg"),
+  background-image: url("/images/player/03-img.jpeg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  background-size: auto 100%;
-  background-position: center;
-  background-blend-mode: multiply;
 }
 .trackfourImg {
-  background: url("/images/player/04-img.jpeg"),
+  background-image: url("/images/player/04-img.jpeg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  background-size: auto 100%;
-  background-position: center;
-  background-blend-mode: multiply;
+  background-size: 100%;
 }
 .trackfiveImg {
-  background: url("/images/player/05-img.jpg"),
+  background-image: url("/images/player/05-img.jpg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   background-size: 100%;
-  background-position: center;
-  background-blend-mode: multiply;
 }
 .tracksixImg {
-  background: url("/images/player/06-img.jpeg"),
+  background-image: url("/images/player/06-img.jpeg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  background-size: auto 100%;
-  background-position: center;
-  background-blend-mode: multiply;
 }
 .tracksevenImg {
-  background: url("/images/player/07-img.jpeg"),
+  background-image: url("/images/player/07-img.jpeg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   background-size: 100%;
-  background-position: center;
-  background-blend-mode: multiply;
 }
 .trackeightImg {
-  background: url("/images/player/08-img.jpg"),
+  background-image: url("/images/player/08-img.jpg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  background-size: auto 100%;
-  background-position: center;
-  background-blend-mode: multiply;
 }
 .tracknineImg {
-  background: url("/images/player/09-img.jpeg"),
+  background-image: url("/images/player/09-img.jpeg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   background-size: 100%;
-  background-position: center;
-  background-blend-mode: multiply;
 }
 .playerButtons {
   display: flex;
