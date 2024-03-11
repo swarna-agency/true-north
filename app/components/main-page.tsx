@@ -40,10 +40,16 @@ export const MainPage = () => {
     one: "default",
     two: "default",
     three: "default",
+    four: "default",
+    five: "default",
+    six: "default",
+    seven: "default",
+    eight: "default",
+    nine: "default",
   };
   const [pinStatus, setPinStatus] = useState(initialStatus);
 
-  const [imgOverlayClass, setImgOverlayClass] = useState("");
+  const [imgOverlayClass, setImgOverlayClass] = useState("imgOverlay");
   const [descOverlayClass, setDescOverlayClass] = useState("nodisplay");
   const [bottomOverlay, setBottomOverlay] = useState("default");
 
@@ -86,7 +92,7 @@ export const MainPage = () => {
         });
         setActivePin(trackNo);
         setPlayerClass("hidden");
-        setImgOverlayClass("");
+        setImgOverlayClass("imgOverlay");
         setDescOverlayClass("nodisplay");
         setTimeout(() => {
           setPlayerClass("audioPlayer");
@@ -269,6 +275,90 @@ export const MainPage = () => {
               }}
             >
               <img className="pinImg" src={getPinImg(pinStatus.three)} alt="" />
+            </button>
+            <button
+              className={`${pinClass} pinButton pinFour`}
+              onClick={() => {
+                onClickPin("four");
+              }}
+              onMouseEnter={() => {
+                changeStatus("four", "hover");
+              }}
+              onMouseLeave={() => {
+                changeStatus("four", "default");
+              }}
+            >
+              <img className="pinImg" src={getPinImg(pinStatus.four)} alt="" />
+            </button>
+            <button
+              className={`${pinClass} pinButton pinFive`}
+              onClick={() => {
+                onClickPin("five");
+              }}
+              onMouseEnter={() => {
+                changeStatus("five", "hover");
+              }}
+              onMouseLeave={() => {
+                changeStatus("five", "default");
+              }}
+            >
+              <img className="pinImg" src={getPinImg(pinStatus.five)} alt="" />
+            </button>
+            <button
+              className={`${pinClass} pinButton pinSix`}
+              onClick={() => {
+                onClickPin("six");
+              }}
+              onMouseEnter={() => {
+                changeStatus("six", "hover");
+              }}
+              onMouseLeave={() => {
+                changeStatus("six", "default");
+              }}
+            >
+              <img className="pinImg" src={getPinImg(pinStatus.six)} alt="" />
+            </button>
+            <button
+              className={`${pinClass} pinButton pinSeven`}
+              onClick={() => {
+                onClickPin("seven");
+              }}
+              onMouseEnter={() => {
+                changeStatus("seven", "hover");
+              }}
+              onMouseLeave={() => {
+                changeStatus("seven", "default");
+              }}
+            >
+              <img className="pinImg" src={getPinImg(pinStatus.seven)} alt="" />
+            </button>
+            <button
+              className={`${pinClass} pinButton pinEight`}
+              onClick={() => {
+                onClickPin("eight");
+              }}
+              onMouseEnter={() => {
+                changeStatus("eight", "hover");
+              }}
+              onMouseLeave={() => {
+                changeStatus("eight", "default");
+              }}
+            >
+              <img className="pinImg" src={getPinImg(pinStatus.eight)} alt="" />
+            </button>
+            <button
+              className={`${pinClass} pinButton pinNine`}
+              onClick={() => {
+                onClickPin("nine");
+              }}
+              onMouseEnter={() => {
+                changeStatus("nine", "hover");
+              }}
+              onMouseLeave={() => {
+                changeStatus("nine", "default");
+              }}
+            >
+              <img className="pinImg" src={getPinImg(pinStatus.nine)} alt="" />
             </button>
           </div>
           <AudioPlayer

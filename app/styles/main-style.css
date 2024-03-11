@@ -398,6 +398,30 @@ button {
   bottom: 35vh;
   right: calc((100% - 95vh) / 2 + 2vh);
 }
+.pinFour {
+  bottom: 29vh;
+  right: calc((100% - 95vh) / 2 + 7vh);
+}
+.pinFive {
+  top: 3vh;
+  right: calc((100% - 95vh) / 2 + 20vh);
+}
+.pinSix {
+  bottom: 38vh;
+  right: calc((100% - 95vh) / 2 + 78vh);
+}
+.pinSeven {
+  bottom: 25vh;
+  right: calc((100% - 95vh) / 2 + 13vh);
+}
+.pinEight {
+  top: 17vh;
+  right: calc((100% - 95vh) / 2 + 60vh);
+}
+.pinNine {
+  top: 2vh;
+  right: calc((100% - 95vh) / 2 + 50vh);
+}
 
 /* player */
 
@@ -440,19 +464,91 @@ button {
   animation: slideLeft 0.6s ease-out;
   font-family: "Urbanist", system-ui;
 }
+.imgOverlay {
+  height: 100%;
+}
+.barDecor {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: calc(100% - 85px);
+  display: flex;
+  justify-content: space-between;
+}
+.decor {
+  width: 32%;
+  height: 4px;
+  border-radius: 45px;
+  background: rgba(255, 255, 255, 0.4);
+}
+.decor.one {
+  background: rgba(255, 255, 255, 1);
+}
 .playerCloseBtn {
   /* border: none;
   background-color: transparent;
   cursor: pointer; */
   position: absolute;
   top: 20px;
-  right: 12px;
+  right: 20px;
 }
 .playerImg {
   height: 55%;
   width: 100%;
   position: relative;
   padding: 20px;
+}
+.imgTxtDiv {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.imgTxt p {
+  margin: 0;
+  text-align: left;
+  font-family: "Urbanist", system-ui;
+}
+.locTxt {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 2.2rem;
+}
+.coordTxt {
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+.readMoreBtn {
+  /* position: absolute;
+  bottom: 20px; */
+
+  width: 100%;
+  /* width: calc(100% - 40px); */
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: solid 0.9px rgba(166, 166, 166, 1);
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
+
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Urbanist", system-ui;
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.readMoreBtn:hover {
+  color: #fff;
+  background-color: #343434;
+  border: solid 1px #2a2a2a;
 }
 .trackoneImg {
   background: url("/images/player/01-img.png"),
@@ -472,6 +568,48 @@ button {
   background: url("/images/player/03-img.jpeg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   background-size: auto 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.trackfourImg {
+  background: url("/images/player/04-img.jpeg"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: auto 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.trackfiveImg {
+  background: url("/images/player/05-img.jpg"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.tracksixImg {
+  background: url("/images/player/06-img.jpeg"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: auto 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.tracksevenImg {
+  background: url("/images/player/07-img.jpeg"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.trackeightImg {
+  background: url("/images/player/08-img.jpg"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: auto 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.tracknineImg {
+  background: url("/images/player/09-img.jpeg"),
+    linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: 100%;
   background-position: center;
   background-blend-mode: multiply;
 }
@@ -528,34 +666,6 @@ button {
 .btnInfo img,
 .btnShare img {
   height: 100%;
-}
-.readMoreBtn {
-  position: absolute;
-  bottom: 20px;
-
-  /* width: 100%; */
-  width: calc(100% - 40px);
-  height: 40px;
-  margin: 0 auto;
-  border-radius: 18px;
-  border: solid 0.9px rgba(166, 166, 166, 1);
-  background: rgba(0, 0, 0, 0.6);
-  color: rgba(255, 255, 255, 0.7);
-
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Urbanist", system-ui;
-  font-size: 14px;
-
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-.readMoreBtn:hover {
-  color: #fff;
-  background-color: #343434;
-  border: solid 1px #2a2a2a;
 }
 .streamBtn {
   width: 100%;

@@ -9,7 +9,12 @@ import {
 import { audioPaths } from "~/data/audio-list";
 import { PauseIcon } from "./icons/pause-icon";
 import { PlayIcon } from "./icons/play-icon";
-import { trackStory, trackTitles } from "~/data/texts";
+import {
+  trackCoords,
+  trackLocations,
+  trackStory,
+  trackTitles,
+} from "~/data/texts";
 
 interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
   trackNo?: string;
@@ -84,6 +89,11 @@ export const AudioPlayer = ({
     <div className={className}>
       <div className={`playerImg track${trackNo}Img`}>
         <div className={imgOverlayClass}>
+          <div className="barDecor">
+            <div className="decor one"></div>
+            <div className="decor"></div>
+            <div className="decor"></div>
+          </div>
           <button
             className="playerCloseBtn"
             onClick={() => {
@@ -92,27 +102,33 @@ export const AudioPlayer = ({
             }}
           >
             <img
-              src="/images/player/close.png"
+              src="/images/player/close-small.png"
               alt="Close button"
-              width="40px"
+              width="30px"
             />
           </button>
-          <button
-            className="readMoreBtn"
-            onClick={() => {
-              setImgOverlayClass("nodisplay");
-              setDescOverlayClass("descOverlay fadeIn");
-            }}
-          >
-            Read More
-          </button>
+          <div className="imgTxtDiv">
+            <div className="imgTxt">
+              <p className="locTxt">{trackLocations[trackNo]}</p>
+              <p className="coordTxt">{trackCoords[trackNo]}</p>
+            </div>
+            <button
+              className="readMoreBtn"
+              onClick={() => {
+                setImgOverlayClass("nodisplay");
+                setDescOverlayClass("descOverlay fadeIn");
+              }}
+            >
+              Read More
+            </button>
+          </div>
         </div>
         {/* overlay track story description */}
         <div className={descOverlayClass}>
           <button
             className="closeDescBtn"
             onClick={() => {
-              setImgOverlayClass("fadeIn");
+              setImgOverlayClass("imgOverlay fadeIn");
               setDescOverlayClass("descOverlay fadeOut");
               setTimeout(() => {
                 setDescOverlayClass("nodisplay");
