@@ -1,7 +1,10 @@
 import { useRef, useState } from "react";
 import { AudioPlayer } from "./audio-player";
-import { ArrowDownIcon } from "./icons/arrow-down-icon";
-import { ArrowHoverIcon } from "./icons/arrow-hover-icon";
+import {
+  ArrowDownIcon,
+  ArrowHoverIcon,
+  ArrowUpIcon,
+} from "./icons/arrows-icon";
 
 const getPinImg = (status: string): string => {
   switch (status) {
@@ -66,6 +69,15 @@ export const MainPage = () => {
     setIsPlaying(false);
     setBottomOverlay("default");
     // setIsMute(true);
+  };
+
+  const hasVisitedAll = () => {
+    const values = Object.values(pinStatus);
+    return (
+      values.every((item) => item !== "default") &&
+      values.filter((val) => val === "active").length <= 1 &&
+      values.filter((val) => val === "hover").length < 1
+    );
   };
 
   const onClickPin = (trackNo: string) => {
@@ -376,6 +388,23 @@ export const MainPage = () => {
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
           />
+        </div>
+        <div className="topBtnContainer">
+          {hasVisitedAll() ? (
+            <button
+              className="toTopBtn"
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
+            >
+              <div className="upArrowOutCircle">
+                <div className="upArrowInCircle">
+                  <ArrowUpIcon />
+                </div>
+              </div>
+              Back to Top
+            </button>
+          ) : null}
         </div>
       </div>
       <div className="sectionFooter">

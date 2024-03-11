@@ -15,6 +15,8 @@ import {
   trackStory,
   trackTitles,
 } from "~/data/texts";
+import { CopyIcon } from "./icons/copy-icon";
+import { FacebookIcon, TwitterIcon, WhatsappIcon } from "./icons/social-icons";
 
 interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
   trackNo?: string;
@@ -36,6 +38,8 @@ interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
 const getProgressWidth = (progress: number) => {
   return Math.floor((progress / 30) * 100) + 1;
 };
+
+const websiteLink = "[website.link]";
 
 export const AudioPlayer = ({
   trackNo = "one",
@@ -282,7 +286,46 @@ export const AudioPlayer = ({
                 width="40px"
               />
             </button>
-            Share buttons here
+            <div className="shareLayer">
+              <p className="shareTitle">Share with</p>
+              <div className="shareButtons">
+                <a
+                  className="socialBtn"
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`http://www.facebook.com/share.php?u=${websiteLink}`}
+                >
+                  <FacebookIcon />
+                </a>
+                <a
+                  className="socialBtn"
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`https://twitter.com/intent/tweet?url=${websiteLink}`}
+                >
+                  <TwitterIcon />
+                </a>
+                <a
+                  className="socialBtn"
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`whatsapp://send?text=${websiteLink}`}
+                >
+                  <WhatsappIcon />
+                </a>
+              </div>
+              <p className="shareTxt">Or share with link</p>
+              <div className="shareLink">
+                <span>{websiteLink}</span>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(websiteLink);
+                  }}
+                >
+                  <CopyIcon />
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>

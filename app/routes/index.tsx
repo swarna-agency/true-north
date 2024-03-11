@@ -22,6 +22,11 @@ export const links: LinksFunction = () => {
     },
     {
       rel: "preload",
+      href: "/images/wave.png",
+      as: "image",
+    },
+    {
+      rel: "preload",
       href: "/images/player/01-img.jpg",
       as: "image",
     },
