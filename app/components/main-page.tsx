@@ -395,6 +395,7 @@ export const MainPage = () => {
             // setIsMute={setIsMute}
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
+            onClickPin={onClickPin}
           />
         </div>
         <div className="topBtnContainer">

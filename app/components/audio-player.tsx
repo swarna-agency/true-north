@@ -17,6 +17,7 @@ import {
 } from "~/data/texts";
 import { CopyIcon } from "./icons/copy-icon";
 import { FacebookIcon, TwitterIcon, WhatsappIcon } from "./icons/social-icons";
+import { SkipBackIcon, SkipForwardIcon } from "./icons/skip-icons";
 
 interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
   trackNo?: string;
@@ -33,6 +34,7 @@ interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
   // setIsMute: Dispatch<SetStateAction<boolean>>;
   isPlaying: boolean;
   setIsPlaying: Dispatch<SetStateAction<boolean>>;
+  onClickPin: (track: string) => void;
 }
 
 const getProgressWidth = (progress: number) => {
@@ -40,6 +42,29 @@ const getProgressWidth = (progress: number) => {
 };
 
 const websiteLink = "[website.link]";
+
+const next: { [char: string]: string } = {
+  one: "two",
+  two: "three",
+  three: "four",
+  four: "five",
+  five: "six",
+  six: "seven",
+  seven: "eight",
+  eight: "nine",
+  nine: "one",
+};
+const prev: { [char: string]: string } = {
+  one: "nine",
+  two: "one",
+  three: "two",
+  four: "three",
+  five: "four",
+  six: "five",
+  seven: "six",
+  eight: "seven",
+  nine: "eight",
+};
 
 export const AudioPlayer = ({
   trackNo = "one",
@@ -56,6 +81,7 @@ export const AudioPlayer = ({
   // setIsMute,
   isPlaying,
   setIsPlaying,
+  onClickPin,
 }: AudioPlayerProps) => {
   // const [isMute, setIsMute] = useState(true);
   // const [isPlaying, setIsPlaying] = useState(false);
@@ -230,6 +256,14 @@ export const AudioPlayer = ({
             </div>
             <div className="playerButtons">
               <button
+                className="skipBtn"
+                onClick={() => {
+                  onClickPin(prev[trackNo]);
+                }}
+              >
+                <SkipBackIcon />
+              </button>
+              <button
                 onClick={() => {
                   setIsPlaying(!isPlaying);
                   // isMute ? setIsMute(false) : null;
@@ -238,6 +272,14 @@ export const AudioPlayer = ({
                 className="titleFont playBtn"
               >
                 {isPlaying ? <PauseIcon /> : <PlayIcon />}
+              </button>
+              <button
+                className="skipBtn"
+                onClick={() => {
+                  onClickPin(next[trackNo]);
+                }}
+              >
+                <SkipForwardIcon />
               </button>
             </div>
             {/* <button
