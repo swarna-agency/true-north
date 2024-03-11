@@ -146,6 +146,7 @@ export const MainPage = () => {
         </ul>
       </nav>
       <div className="sectionHero">
+        <div className="bgImg"></div>
         <h1 className="titleAlbum">The True North</h1>
         <p className="heroParagraph">
           A deeply personal reflection and musical journey, drawing inspiration
