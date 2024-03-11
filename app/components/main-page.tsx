@@ -195,10 +195,11 @@ export const MainPage = () => {
           }}
           onClick={() => {
             setAnimateClass("animateMap");
-            // animationRef.current?.scrollIntoView();
+            // animationRef.current?.scrollIntoView({ behavior: "instant" });
+            setMapButtonClass("nodisplay");
             setTimeout(() => {
-              animationRef.current?.scrollIntoView();
-              setMapButtonClass("nodisplay");
+              animationRef.current?.scrollIntoView({ behavior: "instant" });
+              // setMapButtonClass("nodisplay");
             }, 200);
             setTimeout(() => {
               setMapImgClass("mapImg");
