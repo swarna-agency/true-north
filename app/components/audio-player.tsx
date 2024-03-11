@@ -306,7 +306,7 @@ export const AudioPlayer = ({
                   <TwitterIcon />
                 </a>
                 <a
-                  className="socialBtn"
+                  className="socialBtn wa"
                   target="_blank"
                   rel="noreferrer"
                   href={`whatsapp://send?text=${websiteLink}`}

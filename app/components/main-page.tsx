@@ -5,6 +5,14 @@ import {
   ArrowHoverIcon,
   ArrowUpIcon,
 } from "./icons/arrows-icon";
+import {
+  AppleIcon,
+  FacebookIcon,
+  InstagramIcon,
+  SpotifyIcon,
+  TwitterIcon,
+  YoutubeIcon,
+} from "./icons/social-icons";
 
 const getPinImg = (status: string): string => {
   switch (status) {
@@ -429,7 +437,50 @@ export const MainPage = () => {
             </a>
           </span>
         </div>
-        <div></div>
+        <div className="footerIcons">
+          <a
+            href="https://twitter.com/pgarrett"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <TwitterIcon />
+          </a>
+          <a
+            href="https://www.instagram.com/peterrgarrett/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <InstagramIcon />
+          </a>
+          <a
+            href="https://www.facebook.com/petergarrettofficial/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FacebookIcon />
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCTp1b1ENP-mPCuDvdlLvFjA"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <YoutubeIcon />
+          </a>
+          <a
+            href="https://music.apple.com/au/artist/peter-garrett/33147132"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <AppleIcon />
+          </a>
+          <a
+            href="https://open.spotify.com/artist/3wgUGwReUoTsnLAC0ColFJ/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <SpotifyIcon />
+          </a>
+        </div>
       </div>
     </div>
   );

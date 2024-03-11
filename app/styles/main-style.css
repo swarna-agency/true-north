@@ -302,16 +302,20 @@ button {
   /* opacity: 1; */
   transition: opacity 1s ease-in;
 }
+.mapButton p {
+  font-family: "Abhaya Libre", system-ui;
+  color: rgba(163, 124, 95, 1);
+  font-size: 18px;
+}
+.mapButton:hover p {
+  color: rgba(45, 45, 42, 1);
+}
 
 @keyframes zoomMap {
   0% {
     background-image: url("/images/map-icon-2.png");
     background-size: 20vh;
   }
-  /* 60% {
-    background-image: url("/images/map.png");
-    background-size: 30%;
-  } */
   100% {
     background-image: url("/images/map.png");
     background-size: 95vh;
@@ -384,7 +388,7 @@ button {
   border: none; */
 }
 .pinImg {
-  width: 7vh;
+  width: 6vh;
 }
 .pin {
   position: absolute;
@@ -780,9 +784,12 @@ p.shareTxt {
   background-color: rgba(238, 108, 77, 0.2);
 }
 .socialBtn svg {
-  width: 22px;
+  width: 30px;
   height: auto;
   color: #808080;
+}
+.socialBtn.wa svg {
+  width: 20px;
 }
 .socialBtn:hover svg {
   color: rgba(238, 108, 77, 1);
@@ -869,6 +876,16 @@ p.shareTxt {
 
 .sectionFooter a {
   text-decoration: none;
+  color: #fff;
+}
+.footerIcons {
+  gap: 20px;
+}
+.footerIcons svg {
+  width: 40px;
+  color: rgba(128, 128, 128, 1);
+}
+.footerIcons a:hover svg {
   color: #fff;
 }
 
