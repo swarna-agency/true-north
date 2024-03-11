@@ -337,7 +337,7 @@ button {
 }
 
 .animateMap {
-  animation: zoomMap 5s ease-in;
+  animation: zoomMap 2.5s ease-in-out;
   animation-delay: 200ms;
   height: 100vh;
 }

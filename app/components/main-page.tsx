@@ -204,7 +204,7 @@ export const MainPage = () => {
             setTimeout(() => {
               setMapImgClass("mapImg");
               setPinClass("pin");
-            }, 5200);
+            }, 2700);
           }}
         >
           <div>
