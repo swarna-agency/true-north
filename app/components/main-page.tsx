@@ -200,7 +200,7 @@ export const MainPage = () => {
             setTimeout(() => {
               animationRef.current?.scrollIntoView({ behavior: "instant" });
               // setMapButtonClass("nodisplay");
-            }, 200);
+            }, 100);
             setTimeout(() => {
               setMapImgClass("mapImg");
               setPinClass("pin");
