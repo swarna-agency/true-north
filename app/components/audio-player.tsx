@@ -135,6 +135,14 @@ export const AudioPlayer = ({
               ? Math.floor(playerRef.current?.currentTime)
               : 0
           );
+          if (playerRef.current && playerRef.current.currentTime <= 12) {
+            playerRef.current.volume =
+              (playerRef.current.currentTime / 5) * 0.4;
+          } else if (playerRef.current && playerRef.current.currentTime >= 25) {
+            playerRef.current.volume = (30 - playerRef.current.currentTime) / 5;
+          } else if (playerRef.current) {
+            playerRef.current.volume = 1;
+          }
         }}
       >
         {/* <source src={audioPaths[trackNo]} type="audio/mp3" />
@@ -152,14 +160,14 @@ export const AudioPlayer = ({
                 </div>
               </div>
               <div className="moreButtons">
-                <button
+                {/* <button
                   className="btnInfo"
                   onClick={() => {
                     setBottomOverlay("info");
                   }}
                 >
                   <img alt="Info button" src="/images/player/info.png" />
-                </button>
+                </button> */}
                 <button
                   className="btnShare"
                   onClick={() => {
@@ -205,6 +213,7 @@ export const AudioPlayer = ({
                 onClick={() => {
                   setIsPlaying(!isPlaying);
                   // isMute ? setIsMute(false) : null;
+                  playerRef.current ? (playerRef.current.volume = 0) : null;
                 }}
                 className="titleFont playBtn"
               >

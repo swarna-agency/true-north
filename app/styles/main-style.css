@@ -33,6 +33,7 @@ button {
   background-blend-mode: multiply;
   background-repeat: no-repeat;
   background-position: bottom;
+  background-size: 100%;
 }
 
 .titleName {
@@ -234,6 +235,7 @@ button {
   background-clip: padding-box;
   background-blend-mode: normal, multiply;
   background-position: center, bottom;
+  background-size: 100%;
 }
 
 .sectionMap {
@@ -708,3 +710,9 @@ button {
   text-decoration: none;
   color: #fff;
 }
+
+/* @media only screen and (min-width: 1441px) {
+  .sectionWave {
+    height: calc(2880px / 100vw * 831px);
+  }
+} */
