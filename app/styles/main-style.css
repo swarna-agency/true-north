@@ -515,7 +515,6 @@ button {
   width: 100%;
   height: 100%;
   /* padding-top: 20px; */
-  padding-right: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -524,6 +523,7 @@ button {
   margin: 0;
   text-align: left;
   font-family: "Urbanist", system-ui;
+  padding-right: 40px;
 }
 p.locTxt {
   color: #fff;
