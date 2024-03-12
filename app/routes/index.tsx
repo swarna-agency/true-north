@@ -85,51 +85,51 @@ export const links: LinksFunction = () => {
       href: "/images/vinyl.png",
       as: "image",
     },
-    {
-      rel: "preload",
-      href: "/audio/01-the-true-north.mp3",
-      as: "audio",
-    },
-    {
-      rel: "preload",
-      href: "/audio/02-paddo.mp3",
-      as: "audio",
-    },
-    {
-      rel: "preload",
-      href: "/audio/03-innocence-parts-1-&-2.mp3",
-      as: "audio",
-    },
-    {
-      rel: "preload",
-      href: "/audio/04-hey-archetype.mp3",
-      as: "audio",
-    },
-    {
-      rel: "preload",
-      href: "/audio/05-permaglow.mp3",
-      as: "audio",
-    },
-    {
-      rel: "preload",
-      href: "/audio/06-human-playground.mp3",
-      as: "audio",
-    },
-    {
-      rel: "preload",
-      href: "/audio/07-currowan.mp3",
-      as: "audio",
-    },
-    {
-      rel: "preload",
-      href: "/audio/08-meltdown.mp3",
-      as: "audio",
-    },
-    {
-      rel: "preload",
-      href: "/audio/09-everybody.mp3",
-      as: "audio",
-    },
+    // {
+    //   rel: "preload",
+    //   href: "/audio/01-the-true-north.mp3",
+    //   as: "audio",
+    // },
+    // {
+    //   rel: "preload",
+    //   href: "/audio/02-paddo.mp3",
+    //   as: "audio",
+    // },
+    // {
+    //   rel: "preload",
+    //   href: "/audio/03-innocence-parts-1-&-2.mp3",
+    //   as: "audio",
+    // },
+    // {
+    //   rel: "preload",
+    //   href: "/audio/04-hey-archetype.mp3",
+    //   as: "audio",
+    // },
+    // {
+    //   rel: "preload",
+    //   href: "/audio/05-permaglow.mp3",
+    //   as: "audio",
+    // },
+    // {
+    //   rel: "preload",
+    //   href: "/audio/06-human-playground.mp3",
+    //   as: "audio",
+    // },
+    // {
+    //   rel: "preload",
+    //   href: "/audio/07-currowan.mp3",
+    //   as: "audio",
+    // },
+    // {
+    //   rel: "preload",
+    //   href: "/audio/08-meltdown.mp3",
+    //   as: "audio",
+    // },
+    // {
+    //   rel: "preload",
+    //   href: "/audio/09-everybody.mp3",
+    //   as: "audio",
+    // },
   ];
 };
 
