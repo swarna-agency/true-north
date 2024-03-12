@@ -136,22 +136,22 @@ export const links: LinksFunction = () => {
 export default function Index() {
   const [hasEntered, setHasEntered] = useState(false);
   const [isEntering, setIsEntering] = useState(false);
-  const [albumBtnClass, setAlbumBtnClass] = useState("albumButton");
+  const [albumImgClass, setAlbumImgClass] = useState("albumImg");
   const [vinylImgClass, setVinylImgClass] = useState("vinylImg");
   const [openingDivClass, setOpeningDivClass] = useState("opening");
   const [ctaTextClass, setCtaTextClass] = useState("ctaText");
 
   const goToMainPageSequence = () => {
-    setAlbumBtnClass("albumImg animateAlbum");
+    setAlbumImgClass("albumImg animateAlbum");
     setVinylImgClass("vinylImg animateVinyl");
     setCtaTextClass("hidden");
     setIsEntering(true);
     setTimeout(() => {
       setOpeningDivClass("opening fadeOut2");
-    }, 1000);
+    }, 4000);
     setTimeout(() => {
       setHasEntered(true);
-    }, 2000);
+    }, 5000);
   };
 
   const onHover = () => {
@@ -168,7 +168,7 @@ export default function Index() {
       ) : (
         <Opening
           enterSite={goToMainPageSequence}
-          albumImgClass={albumBtnClass}
+          albumImgClass={albumImgClass}
           vinylImgClass={vinylImgClass}
           openingDivClass={openingDivClass}
           ctaTextClass={ctaTextClass}

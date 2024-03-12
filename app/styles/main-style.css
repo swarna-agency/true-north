@@ -49,8 +49,10 @@ button {
 .albumButton,
 .albumImg {
   width: 300px;
-  filter: grayscale();
   transition: all 1s ease;
+}
+.albumImg {
+  filter: grayscale();
 }
 /* .albumButton {
   border: solid 1px #fff;
@@ -60,7 +62,7 @@ button {
   color: rgba(133, 133, 133, 1);
 } */
 /* .albumImg:hover { */
-.albumButton:hover {
+.albumButton:hover .albumImg {
   filter: none;
   transform: scale(1.1);
 }
@@ -85,23 +87,37 @@ button {
 @keyframes enterSeq {
   0% {
     transform: scale(1.2);
+    filter: none;
   }
   25% {
     transform: scale(1.7) translateX(0);
+    filter: none;
+  }
+  40% {
+    transform: scale(1.7) translateX(0);
+    filter: none;
   }
   100% {
     transform: scale(1.7) translateX(-60vw);
+    filter: none;
   }
 }
 @keyframes enterSeq2 {
   0% {
     transform: scale(1.2);
+    filter: none;
   }
   25% {
     transform: scale(1.7) translateX(0);
+    filter: none;
+  }
+  40% {
+    transform: scale(1.7) translateX(10vw);
+    filter: none;
   }
   100% {
     transform: scale(1.7) translateX(60vw);
+    filter: none;
   }
 }
 .albumButton,
@@ -118,15 +134,15 @@ button {
   height: auto;
 }
 .animateAlbum {
-  animation: enterSeq 2.8s ease;
+  animation: enterSeq 7s ease;
 }
 .animateVinyl {
-  animation: enterSeq2 2.8s ease;
+  animation: enterSeq2 7s ease;
 }
-.animateAlbum,
+/* .animateAlbum,
 .animateVinyl {
   filter: none;
-}
+} */
 
 /* Main landing page */
 
