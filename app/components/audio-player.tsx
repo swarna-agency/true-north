@@ -119,11 +119,11 @@ export const AudioPlayer = ({
     <div className={className}>
       <div className={`playerImg track${trackNo}Img`}>
         <div className={imgOverlayClass}>
-          <div className="barDecor">
+          {/* <div className="barDecor">
             <div className="decor one"></div>
             <div className="decor"></div>
             <div className="decor"></div>
-          </div>
+          </div> */}
           <button
             className="playerCloseBtn"
             onClick={() => {
@@ -295,7 +295,7 @@ export const AudioPlayer = ({
               target="_blank"
               rel="noreferrer"
             >
-              Stream Album Now
+              Purchase/Stream/Download Album
             </a>
           </>
         ) : bottomOverlay === "info" ? (

@@ -166,7 +166,7 @@ export const MainPage = () => {
               target="_blank"
               rel="noreferrer"
             >
-              Purchase Now
+              Purchase/Stream/Download Album
             </a>
           </li>
         </ul>
@@ -201,11 +201,11 @@ export const MainPage = () => {
       <div className="sectionMap" ref={mapSectionRef}>
         <div className="mapHeading">
           The True North is a musical adventure drawing inspiration from
-          Australia’s Top End
+          Australia’s Top End.
         </div>
         <div className="mapParagraph">
           The record aims to highlight environmental hot spots in Northern
-          Australia, but the music and title reach broader… leaning into the
+          Australia, but the music and title reach broader… so leaning into the
           navigational meaning of true north but also referencing one’s moral
           compass with both geographic and philosophical meaning.
         </div>

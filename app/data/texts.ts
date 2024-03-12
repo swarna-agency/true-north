@@ -1,6 +1,6 @@
 export const trackStory: { [char: string]: string } = {
-  one: "Madjedbebe on the South Alligator floodplain at Kakadu: The site of the oldest verified human occupation in Australia, 64,000 years, which I visted recently. And it also happens to be on the Jabiluka mining lease which is trenchantly opposed by traditional owners, and hence should not be renewed.",
-  two: "Hallowed ground to dip into the memory pool. Garretts playing cricket in the early days, and a hundred years later music. Steve Waugh’s century. Weekend suspension of life’s burdens and the joy of a Swans mark, even on elections days - sport and politics must mix.",
+  one: "Madjedbebe on the South Alligator floodplain at Kakadu: The site of the oldest verified human occupation in Australia, 64,000 years, which I visited recently. And it also happens to be on the Jabiluka mining lease which is trenchantly opposed by traditional owners, and hence should not be renewed.",
+  two: "Sydney Cricket Ground: Hallowed ground to dip into the memory pool. Garretts playing cricket in the early days, and a hundred years later music. Steve Waugh’s century. Weekend suspension of life’s burdens and the joy of a Swans mark, even on elections days - sport and politics must mix.",
   three:
     "Manly Beach: A second home of sorts over many years. Evocative, much visited and emblematic of our way of life. Still a thousand miles from care …?",
   four: "Woollies Car park Double Bay: Enter at your own risk. In one of the highest earning postcodes in Australia, car parking spots for big luxury vehicles are aggressively contested as tho' lives & status depends on getting in first, I barely got out alive.",
@@ -26,25 +26,25 @@ export const trackTitles: { [char: string]: string } = {
 };
 
 export const trackLocations: { [char: string]: string } = {
-  one: "Madjedbebe in Arnhem Land",
-  two: "Sydney Cricket Ground",
-  three: "Manly Beach",
-  four: "Double Bay, Sydney",
+  one: "Madjedbebe in Arnhem Land, NT",
+  two: "Sydney Cricket Ground, NSW",
+  three: "Manly Beach, NSW",
+  four: "Double Bay, Sydney, NSW",
   five: "Shellburne Bay, Cape York",
-  six: "Perth, Western Australia",
-  seven: "Currowan, South Coast",
-  eight: "Fitzroy River (Martuwarra)",
+  six: "Perth, WA",
+  seven: "Currowan, South Coast, NSW",
+  eight: "Fitzroy River (Martuwarra), WA",
   nine: "Darwin Harbour",
 };
 
 export const trackCoords: { [char: string]: string } = {
   one: "12°30′S 132°53′E",
-  two: "33.8915° S, 151.2249° E",
+  two: "33.8915° S 151.2249° E",
   three: "33°47′23″S 151°17′16″E",
-  four: "33.8784° S, 151.2421° E",
-  five: "11°58′S143°15′E",
-  six: "31.9514° S, 115.8617° E",
+  four: "33.8784° S 151.2421° E",
+  five: "11°58′S 143°15′E",
+  six: "31.9514° S 115.8617° E",
   seven: "35.5766° S, 150.1666° E",
-  eight: "23°32′15″S 150°53′13″E",
+  eight: "17°25′39″S 123°33′52″E",
   nine: "12.4708°S 130.8483°E",
 };
