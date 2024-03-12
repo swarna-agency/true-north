@@ -41,7 +41,7 @@ const getProgressWidth = (progress: number) => {
   return Math.floor((progress / 30) * 100) + 1;
 };
 
-const websiteLink = "[website.link]";
+const websiteLink = "https://true-north-neon.vercel.app/";
 
 const next: { [char: string]: string } = {
   one: "two",
@@ -335,7 +335,7 @@ export const AudioPlayer = ({
                   className="socialBtn"
                   target="_blank"
                   rel="noreferrer"
-                  href={`http://www.facebook.com/share.php?u=${websiteLink}`}
+                  href={`https://facebook.com/dialog/share?href=${websiteLink}`}
                 >
                   <FacebookIcon />
                 </a>
@@ -343,7 +343,7 @@ export const AudioPlayer = ({
                   className="socialBtn"
                   target="_blank"
                   rel="noreferrer"
-                  href={`https://twitter.com/intent/tweet?url=${websiteLink}`}
+                  href={`https://twitter.com/intent/tweet?url=${websiteLink}&text=Check%20out%20The%20True%20North%20album%20player%20from%20Peter%20Garrett.`}
                 >
                   <TwitterIcon />
                 </a>
@@ -351,7 +351,7 @@ export const AudioPlayer = ({
                   className="socialBtn wa"
                   target="_blank"
                   rel="noreferrer"
-                  href={`whatsapp://send?text=${websiteLink}`}
+                  href={`https://wa.me?text=${websiteLink}`}
                 >
                   <WhatsappIcon />
                 </a>

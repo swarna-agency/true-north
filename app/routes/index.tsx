@@ -8,7 +8,7 @@ export const meta: MetaFunction = () => {
     { title: "The True North" },
     {
       name: "description",
-      content: `Check out The True North, a deeply personal reflection and musical journey, drawing inspiration and sustenance from the living colours of Australia’s natural environment and the sights and sounds of modern Oz.`,
+      content: "Check out The True North album player from Peter Garrett.",
     },
   ];
 };
