@@ -80,10 +80,47 @@ export const links: LinksFunction = () => {
 
 export default function Index() {
   const [hasEntered, setHasEntered] = useState(false);
+  const [isEntering, setIsEntering] = useState(false);
+  const [albumBtnClass, setAlbumBtnClass] = useState("albumButton");
+  const [vinylImgClass, setVinylImgClass] = useState("vinylImg");
+  const [openingDivClass, setOpeningDivClass] = useState("opening");
+  const [ctaTextClass, setCtaTextClass] = useState("ctaText");
+
+  const goToMainPageSequence = () => {
+    setAlbumBtnClass("albumImg animateAlbum");
+    setVinylImgClass("vinylImg animateVinyl");
+    setCtaTextClass("hidden");
+    setIsEntering(true);
+    setTimeout(() => {
+      setOpeningDivClass("opening fadeOut2");
+    }, 1000);
+    setTimeout(() => {
+      setHasEntered(true);
+    }, 2000);
+  };
+
+  const onHover = () => {
+    !isEntering ? setCtaTextClass("ctaText ctaTextHover") : null;
+  };
+  const onHoverOut = () => {
+    !isEntering ? setCtaTextClass("ctaText") : null;
+  };
 
   return (
     <div>
-      {hasEntered ? <MainPage /> : <Opening enterSite={setHasEntered} />}
+      {hasEntered ? (
+        <MainPage />
+      ) : (
+        <Opening
+          enterSite={goToMainPageSequence}
+          albumImgClass={albumBtnClass}
+          vinylImgClass={vinylImgClass}
+          openingDivClass={openingDivClass}
+          ctaTextClass={ctaTextClass}
+          onHover={onHover}
+          onHoverOut={onHoverOut}
+        />
+      )}
     </div>
   );
 }

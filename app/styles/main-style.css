@@ -46,29 +46,87 @@ button {
   padding-top: 40px;
 }
 
-.opening img {
+.albumButton,
+.albumImg {
   width: 300px;
   filter: grayscale();
   transition: all 1s ease;
 }
-
-.opening img:hover {
+/* .albumButton {
+  border: solid 1px #fff;
+} */
+/* .imgContainer p {
+  font-family: "Urbanist", system-ui;
+  color: rgba(133, 133, 133, 1);
+} */
+/* .albumImg:hover { */
+.albumButton:hover {
   filter: none;
+  transform: scale(1.1);
 }
-
+.ctaText {
+  font-family: "Urbanist", system-ui;
+  color: rgba(133, 133, 133, 1);
+  transition: all 1s ease;
+}
+.ctaTextHover {
+  color: #fff;
+  transform: translateY(50px);
+}
 .opening .imgContainer {
   display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
 }
-
-/* .albumButton {
-  border: none;
-  background-color: transparent;
-} */
+@keyframes enterSeq {
+  0% {
+    transform: scale(1.2);
+  }
+  25% {
+    transform: scale(1.7) translateX(0);
+  }
+  100% {
+    transform: scale(1.7) translateX(-60vw);
+  }
+}
+@keyframes enterSeq2 {
+  0% {
+    transform: scale(1.2);
+  }
+  25% {
+    transform: scale(1.7) translateX(0);
+  }
+  100% {
+    transform: scale(1.7) translateX(60vw);
+  }
+}
+.albumButton,
+.albumImg {
+  position: relative;
+  z-index: 1;
+}
+.vinylImg {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: auto;
+}
+.animateAlbum {
+  animation: enterSeq 2.8s ease;
+}
+.animateVinyl {
+  animation: enterSeq2 2.8s ease;
+}
+.animateAlbum,
+.animateVinyl {
+  filter: none;
+}
 
 /* Main landing page */
 
@@ -76,6 +134,7 @@ button {
   background-color: #000;
   text-align: center;
   position: relative;
+  animation: fadeIn2 3s ease-out;
 }
 
 .bgImg {
@@ -442,12 +501,28 @@ button {
     opacity: 1;
   }
 }
+@keyframes fadeIn2 {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes fadeOut {
   0% {
     opacity: 1;
   }
   100% {
     opacity: 0;
+  }
+}
+@keyframes fadeOut2 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
   }
 }
 @keyframes slideLeft {
@@ -731,6 +806,9 @@ p.locTxt {
 }
 .fadeOut {
   animation: fadeOut 1s ease-out;
+}
+.fadeOut2 {
+  animation: fadeOut2 2s ease-out;
 }
 
 .closeDescBtn {
