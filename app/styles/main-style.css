@@ -391,22 +391,27 @@ button {
   0% {
     background-image: url("/images/map-icon-2.png");
     background-size: 20vh;
+    height: 100vh;
+    background-position: top;
   }
   100% {
     background-image: url("/images/map.png");
     background-size: 95vh;
+    height: 100vh;
+    background-position: top;
   }
 }
 
 .animationContainer {
   width: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
+  max-width: 160vh;
   height: 300px;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
 
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .justifyCenter {
@@ -424,7 +429,7 @@ button {
 
 .animateMap {
   animation: zoomMap 2.5s ease-in-out;
-  animation-delay: 200ms;
+  /* animation-delay: 200ms; */
   height: 100vh;
 }
 
@@ -438,13 +443,14 @@ button {
 }
 
 .mapSlideLeft {
-  transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2)));
-  /* transform: translateX(-30px); */
+  /* transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2))); */
+  transform: translateX(calc(0px - ((min(100%, 160vh) - 95vh) / 2)));
   transition: all 1s ease-in-out;
 }
 @keyframes slideBack {
   0% {
-    transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2)));
+    /* transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2))); */
+    transform: translateX(calc(0px - ((min(100%, 160vh) - 95vh) / 2)));
   }
   100% {
     transform: translateX(0);
@@ -452,16 +458,11 @@ button {
 }
 .mapSlideBack {
   animation: slideBack 1s ease-in-out;
-  /* transform: translateX(calc(((min(100%, 1200px) - 95vh) / 2))); */
-  /* transform: translateX(300px); */
-  /* transition: all 1s ease-in-out; */
 }
 
 /* Pins */
 .pinButton {
   border-radius: 50%;
-  /* background-color: transparent;
-  border: none; */
 }
 .pinImg {
   width: 6vh;
@@ -471,19 +472,18 @@ button {
 }
 .pinOne {
   top: 10vh;
-  /* right: 41vh; */
   right: calc((100% - 95vh) / 2 + 41vh);
 }
 .pinTwo {
-  bottom: 30vh;
+  bottom: 40vh;
   right: calc((100% - 95vh) / 2 + 11vh);
 }
 .pinThree {
-  bottom: 35vh;
+  bottom: 45vh;
   right: calc((100% - 95vh) / 2 + 2vh);
 }
 .pinFour {
-  bottom: 27vh;
+  bottom: 37vh;
   right: calc((100% - 95vh) / 2 + 5vh);
 }
 .pinFive {
@@ -491,11 +491,11 @@ button {
   right: calc((100% - 95vh) / 2 + 18vh);
 }
 .pinSix {
-  bottom: 31vh;
+  bottom: 41vh;
   right: calc((100% - 95vh) / 2 + 84vh);
 }
 .pinSeven {
-  bottom: 20vh;
+  bottom: 30vh;
   right: calc((100% - 95vh) / 2 + 6.5vh);
 }
 .pinEight {
@@ -555,6 +555,7 @@ button {
 .audioPlayer {
   height: 70vh;
   width: 54vh;
+  margin-top: 5vh;
   /* border: solid 2px #000; */
   border-radius: 30px;
   display: flex;

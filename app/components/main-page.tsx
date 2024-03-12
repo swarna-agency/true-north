@@ -223,14 +223,19 @@ export const MainPage = () => {
             setAnimateClass("animateMap");
             // animationRef.current?.scrollIntoView({ behavior: "instant" });
             setMapButtonClass("nodisplay");
-            setTimeout(() => {
-              animationRef.current?.scrollIntoView({ behavior: "instant" });
-              // setMapButtonClass("nodisplay");
-            }, 100);
+            // window.scrollTo({ top: 1500, behavior: "instant" });
+            // const interval = setInterval(() => {
+            // animationRef.current?.scrollIntoView({ behavior: "instant" });
+            // }, 1000);
+            // setTimeout(() => {
+            animationRef.current?.scrollIntoView();
+            // }, 10);
             setTimeout(() => {
               setMapImgClass("mapImg");
               setPinClass("pin");
-            }, 2700);
+              // clearInterval(interval);
+              // animationRef.current?.scrollIntoView();
+            }, 2500);
           }}
         >
           <div>
