@@ -29,12 +29,12 @@ export const trackLocations: { [char: string]: string } = {
   one: "Madjedbebe in Arnhem Land, NT",
   two: "Sydney Cricket Ground, NSW",
   three: "Manly Beach, NSW",
-  four: "Double Bay, Sydney, NSW",
-  five: "Shellburne Bay, Cape York",
+  four: "Double Bay, Sydney NSW",
+  five: "Shellburne Bay, Cape York QLD",
   six: "Perth, WA",
-  seven: "Currowan, South Coast, NSW",
+  seven: "Currowan, South Coast NSW",
   eight: "Fitzroy River (Martuwarra), WA",
-  nine: "Darwin Harbour",
+  nine: "Darwin Harbour, NT",
 };
 
 export const trackCoords: { [char: string]: string } = {
