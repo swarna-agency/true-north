@@ -70,7 +70,7 @@ export const MainPage = () => {
   // const [totalDuration, setTotalDuratio] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const [mobileMenuClass, setMobileMenuClass] = useState("nodisplay");
+  const [mobileMenuClass, setMobileMenuClass] = useState("mobilenodisplay");
   const [mobileMenuOverlayClass, setMobileMenuOverlayClass] =
     useState("nodisplay");
   const [stopScroll, setStopScroll] = useState("");
@@ -118,7 +118,7 @@ export const MainPage = () => {
           [trackNo]: "active",
         });
         setActivePin(trackNo);
-        setPlayerClass("hidden");
+        setPlayerClass("hidden mobileAbsolute");
         setImgOverlayClass("imgOverlay");
         setDescOverlayClass("nodisplay");
         setTimeout(() => {

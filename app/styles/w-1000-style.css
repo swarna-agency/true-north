@@ -7,6 +7,10 @@
   }
 }
 
+.mobilenodisplay {
+  display: none;
+}
+
 .navlist {
   display: none;
 }

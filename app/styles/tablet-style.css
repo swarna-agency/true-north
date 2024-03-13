@@ -12,6 +12,9 @@
     background-position: top;
   }
 }
+.mobileAbsolute {
+  position: absolute;
+}
 
 .mapImg {
   width: 90vw;
@@ -45,4 +48,28 @@
 }
 .pinNine {
   right: calc((100% - 90vw) / 2 + 51.5%);
+}
+
+.animationContainer {
+  position: relative;
+  justify-content: center;
+}
+.animateMap {
+  height: 100vw;
+}
+.mapSlideLeft,
+.mapSlideBack {
+  transform: none;
+  transition: none;
+  animation: none;
+}
+.audioPlayer {
+  position: absolute;
+  top: 4vw;
+  left: calc(50vw - (min(80vw, 400px) / 2));
+  margin: 0 auto;
+
+  width: 80vw;
+  max-width: 400px;
+  height: calc(min(80vw, 400px) * 3 / 2);
 }

@@ -11,6 +11,7 @@ import {
 import stylesheet from "./styles/main-style.css";
 import tabletStyle from "./styles/tablet-style.css";
 import w1000Style from "./styles/w-1000-style.css";
+import w500Style from "./styles/w-500-style.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -23,6 +24,11 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: w1000Style,
     media: "(max-width: 1000px)",
+  },
+  {
+    rel: "stylesheet",
+    href: w500Style,
+    media: "(max-width: 500px)",
   },
 ];
 

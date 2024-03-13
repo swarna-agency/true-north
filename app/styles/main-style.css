@@ -319,7 +319,7 @@ button {
   background-image: url("/images/bg/texture.png"),
     url("/images/bg/texture-2.png");
   background-color: #ffc59a;
-  background-repeat: no-repeat;
+  background-repeat: repeat, no-repeat;
   background-clip: padding-box;
   background-blend-mode: normal, multiply;
   background-position: center, bottom;
