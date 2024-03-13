@@ -10,6 +10,7 @@ import {
 
 import stylesheet from "./styles/main-style.css";
 import tabletStyle from "./styles/tablet-style.css";
+import w1000Style from "./styles/w-1000-style.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -17,6 +18,11 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: tabletStyle,
     media: "(max-width: 1024px) and (orientation: portrait)",
+  },
+  {
+    rel: "stylesheet",
+    href: w1000Style,
+    media: "(max-width: 1000px)",
   },
 ];
 

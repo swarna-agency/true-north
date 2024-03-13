@@ -1,0 +1,46 @@
+@keyframes slideDown {
+  0% {
+    transform: translateY(-240px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.navlist {
+  display: none;
+}
+.barMenuBtn {
+  display: block;
+}
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 0 40px 0;
+  background-color: #000;
+  animation: slideDown 1s ease;
+}
+
+.mobileMenu .closeMobileMenu {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.mainPage .mobileMenuOverlay {
+  /* display: block; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(1, 1, 1, 0.3);
+}

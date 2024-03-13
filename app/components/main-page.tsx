@@ -13,6 +13,8 @@ import {
   TwitterIcon,
   YoutubeIcon,
 } from "./icons/social-icons";
+import { BarMenuIcon } from "./icons/bar-menu-icon";
+import { CloseMobileMenuIcon } from "./icons/close-icon";
 
 const getPinImg = (status: string): string => {
   switch (status) {
@@ -67,6 +69,10 @@ export const MainPage = () => {
   // const [isMute, setIsMute] = useState(true);
   // const [totalDuration, setTotalDuratio] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const [mobileMenuClass, setMobileMenuClass] = useState("nodisplay");
+  const [mobileMenuOverlayClass, setMobileMenuOverlayClass] =
+    useState("nodisplay");
 
   const closePlayer = () => {
     setAnimationContainer("justifyStart");
@@ -129,9 +135,28 @@ export const MainPage = () => {
 
   return (
     <div className="mainPage">
+      <div className={`mobileMenuOverlay ${mobileMenuOverlayClass}`} />
       <nav className="navbar">
         <img src="/images/logo-white.png" alt="Website Logo" />
-        <ul className="navlist">
+        <button
+          className="barMenuBtn"
+          onClick={() => {
+            setMobileMenuClass("mobileMenu");
+            setMobileMenuOverlayClass("");
+          }}
+        >
+          <BarMenuIcon />
+        </button>
+        <ul className={`navlist ${mobileMenuClass}`}>
+          <button
+            className="closeMobileMenu"
+            onClick={() => {
+              setMobileMenuClass("");
+              setMobileMenuOverlayClass("nodisplay");
+            }}
+          >
+            <CloseMobileMenuIcon />
+          </button>
           <li>
             <button
               onClick={() => {
