@@ -1025,7 +1025,7 @@ p.shareTxt {
 }
 
 .topBtnContainer {
-  height: 120px;
+  height: auto;
   display: flex;
 }
 .toTopBtn {
