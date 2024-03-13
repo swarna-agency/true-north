@@ -17,3 +17,49 @@
   width: 70%;
   margin: 0 0 40px;
 }
+
+.sectionWave {
+  top: 100px;
+}
+.exploreBtn {
+  top: -116px;
+}
+.sectionDebris {
+  top: -60px;
+}
+.mapHeading {
+  font-size: 2rem;
+  width: 90%;
+}
+.mapParagraph {
+  width: 90%;
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  letter-spacing: 1px;
+}
+.topBtnContainer {
+  margin-top: calc(80vw * 3 / 2 - 80vw);
+}
+
+p.locTxt {
+  font-size: 20px;
+}
+.coordTxt {
+  font-size: 16px;
+}
+.skipBtn {
+  width: 36px;
+  height: 36px;
+}
+.playBtn {
+  width: 48px;
+  height: 48px;
+}
+.playBtn svg {
+  width: 30px;
+  height: auto;
+}
+.skipBtn svg {
+  width: 24px;
+  height: auto;
+}
