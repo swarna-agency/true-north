@@ -32,7 +32,7 @@ export const trackLocations: { [char: string]: string } = {
   four: "Double Bay, Sydney NSW",
   five: "Shellburne Bay, Cape York QLD",
   six: "Perth, WA",
-  seven: "Currowan, South Coast NSW",
+  seven: "Currowan, South Coast, NSW",
   eight: "Fitzroy River (Martuwarra), WA",
   nine: "Darwin Harbour, NT",
 };
