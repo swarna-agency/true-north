@@ -1,4 +1,5 @@
 import {
+  DetailedHTMLProps,
   Dispatch,
   HTMLAttributes,
   SetStateAction,
@@ -19,7 +20,8 @@ import { CopyIcon } from "./icons/copy-icon";
 import { FacebookIcon, TwitterIcon, WhatsappIcon } from "./icons/social-icons";
 import { SkipBackIcon, SkipForwardIcon } from "./icons/skip-icons";
 
-interface AudioPlayerProps extends HTMLAttributes<HTMLDivElement> {
+interface AudioPlayerProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   trackNo?: string;
   onClose: () => void;
   // isReset: boolean;
@@ -67,6 +69,7 @@ const prev: { [char: string]: string } = {
 };
 
 export const AudioPlayer = ({
+  ref,
   trackNo = "one",
   className,
   onClose,
@@ -116,7 +119,7 @@ export const AudioPlayer = ({
     }
   }, [isPlaying]);
   return (
-    <div className={className}>
+    <div className={className} ref={ref}>
       <div className={`playerImg track${trackNo}Img`}>
         <div className={imgOverlayClass}>
           {/* <div className="barDecor">

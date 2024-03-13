@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { AudioPlayer } from "./audio-player";
 import {
   ArrowDownIcon,
@@ -48,6 +48,7 @@ export const MainPage = () => {
 
   const animationRef = useRef<HTMLDivElement>(null);
   const mapSectionRef = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<HTMLDivElement>(null);
 
   const initialStatus: { [char: string]: string } = {
     one: "default",
@@ -75,7 +76,7 @@ export const MainPage = () => {
     useState("nodisplay");
   const [stopScroll, setStopScroll] = useState("");
 
-  const [needScroll, setNeedScroll] = useState(false);
+  // const [needScroll, setNeedScroll] = useState(false);
 
   const closePlayer = () => {
     setAnimationContainer("justifyStart");
@@ -136,11 +137,11 @@ export const MainPage = () => {
     }
   };
 
-  useEffect(() => {
-    if (window.innerWidth < 500) {
-      setNeedScroll(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window.innerWidth < 500) {
+  //     setNeedScroll(true);
+  //   }
+  // }, []);
 
   return (
     <div className={`mainPage ${stopScroll}`}>
@@ -256,10 +257,14 @@ export const MainPage = () => {
           onClick={() => {
             setAnimateClass("animateMap");
             setMapButtonClass("nodisplay");
-            animationRef.current?.scrollIntoView();
-            setTimeout(() => {
-              needScroll ? window.scrollBy(0, -10) : null;
-            }, 500);
+            animationRef.current?.scrollIntoView({ block: "center" });
+            // setTimeout(() => {
+            // needScroll
+            //   ? window.scrollTo(
+            //       0,
+            //       (6.5 * window.innerHeight) / (0.01 * window.innerWidth)
+            //     )
+            //   : animationRef.current?.scrollIntoView();
             setTimeout(() => {
               setMapImgClass("mapImg");
               setPinClass("pin");
@@ -411,6 +416,7 @@ export const MainPage = () => {
             {/* </div> */}
           </div>
           <AudioPlayer
+            ref={playerRef}
             trackNo={activePin}
             className={playerClass}
             onClose={closePlayer}
