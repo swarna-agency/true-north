@@ -48,3 +48,21 @@
   height: 100vh;
   background-color: rgba(1, 1, 1, 0.3);
 }
+
+.sectionFooter {
+  height: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 20px;
+}
+.sectionFooter div:first-child {
+  gap: 20px;
+}
+
+.footerIcons {
+  justify-content: space-between;
+}
+.sectionFooter div:first-child span {
+  padding-left: 0;
+  padding-right: 0;
+}
