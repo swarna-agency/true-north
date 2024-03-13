@@ -41,7 +41,7 @@ const getProgressWidth = (progress: number) => {
   return Math.floor((progress / 30) * 100) + 1;
 };
 
-const websiteLink = "https://true-north-neon.vercel.app/";
+const websiteLink = "true-north-neon.vercel.app";
 
 const next: { [char: string]: string } = {
   one: "two",
