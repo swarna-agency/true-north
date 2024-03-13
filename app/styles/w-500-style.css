@@ -38,7 +38,7 @@
   letter-spacing: 1px;
 }
 .topBtnContainer {
-  margin-top: calc(80vw * 3 / 2 - 80vw);
+  margin-top: calc(80vw * 3 / 2 - 70vw);
 }
 
 .audioPlayer {
@@ -49,6 +49,11 @@ p.locTxt {
 }
 .coordTxt {
   font-size: 16px;
+}
+.trackStoryTxt {
+  width: 100%;
+  margin: 0;
+  padding: 30px 20px 0 60px;
 }
 .skipBtn {
   width: 36px;
