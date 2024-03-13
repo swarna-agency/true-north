@@ -11,6 +11,14 @@
   display: none;
 }
 
+.albumButton,
+.albumImg {
+  width: 200px;
+}
+.vinylImg {
+  width: 190px;
+}
+
 .navlist {
   display: none;
 }
