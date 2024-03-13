@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AudioPlayer } from "./audio-player";
 import {
   ArrowDownIcon,
@@ -75,6 +75,8 @@ export const MainPage = () => {
     useState("nodisplay");
   const [stopScroll, setStopScroll] = useState("");
 
+  const [needScroll, setNeedScroll] = useState(false);
+
   const closePlayer = () => {
     setAnimationContainer("justifyStart");
     setPinStatus({ ...pinStatus, [activePin]: "visited" });
@@ -133,6 +135,12 @@ export const MainPage = () => {
       setPinStatus({ ...pinStatus, [trackNo]: newStatus });
     }
   };
+
+  useEffect(() => {
+    if (window.innerWidth < 500) {
+      setNeedScroll(true);
+    }
+  }, []);
 
   return (
     <div className={`mainPage ${stopScroll}`}>
@@ -240,29 +248,21 @@ export const MainPage = () => {
         <button
           className={mapButtonClass}
           onMouseEnter={() => {
-            // setMapButtonClass("hidden");
             setMapIcon("/images/map-icon-2.png");
           }}
           onMouseLeave={() => {
-            // setMapButtonClass("");
             setMapIcon("/images/map-icon.png");
           }}
           onClick={() => {
             setAnimateClass("animateMap");
-            // animationRef.current?.scrollIntoView({ behavior: "instant" });
             setMapButtonClass("nodisplay");
-            // window.scrollTo({ top: 1500, behavior: "instant" });
-            // const interval = setInterval(() => {
-            // animationRef.current?.scrollIntoView({ behavior: "instant" });
-            // }, 1000);
-            // setTimeout(() => {
             animationRef.current?.scrollIntoView();
-            // }, 10);
+            setTimeout(() => {
+              needScroll ? window.scrollBy(0, -10) : null;
+            }, 500);
             setTimeout(() => {
               setMapImgClass("mapImg");
               setPinClass("pin");
-              // clearInterval(interval);
-              // animationRef.current?.scrollIntoView();
             }, 2500);
           }}
         >
