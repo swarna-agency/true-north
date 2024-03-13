@@ -146,6 +146,11 @@ button {
 
 /* Main landing page */
 
+.stopScroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .mainPage {
   background-color: #000;
   text-align: center;

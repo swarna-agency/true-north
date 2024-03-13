@@ -73,6 +73,7 @@ export const MainPage = () => {
   const [mobileMenuClass, setMobileMenuClass] = useState("nodisplay");
   const [mobileMenuOverlayClass, setMobileMenuOverlayClass] =
     useState("nodisplay");
+  const [stopScroll, setStopScroll] = useState("");
 
   const closePlayer = () => {
     setAnimationContainer("justifyStart");
@@ -134,7 +135,7 @@ export const MainPage = () => {
   };
 
   return (
-    <div className="mainPage">
+    <div className={`mainPage ${stopScroll}`}>
       <div className={`mobileMenuOverlay ${mobileMenuOverlayClass}`} />
       <nav className="navbar">
         <img src="/images/logo-white.png" alt="Website Logo" />
@@ -143,6 +144,7 @@ export const MainPage = () => {
           onClick={() => {
             setMobileMenuClass("mobileMenu");
             setMobileMenuOverlayClass("");
+            setStopScroll("stopScroll");
           }}
         >
           <BarMenuIcon />
@@ -153,6 +155,7 @@ export const MainPage = () => {
             onClick={() => {
               setMobileMenuClass("");
               setMobileMenuOverlayClass("nodisplay");
+              setStopScroll("");
             }}
           >
             <CloseMobileMenuIcon />
