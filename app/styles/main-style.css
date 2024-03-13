@@ -413,6 +413,9 @@ button {
   display: flex;
   /* align-items: center; */
 }
+.animationContainer .relative {
+  height: fit-content;
+}
 
 .justifyCenter {
   display: flex;
@@ -439,18 +442,19 @@ button {
 }
 
 .mapBeforeSlide {
-  width: 100%;
+  /* width: 100%; */
+  margin: 0 auto;
 }
 
 .mapSlideLeft {
   /* transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2))); */
-  transform: translateX(calc(0px - ((min(100%, 160vh) - 95vh) / 2)));
+  transform: translateX(calc(0px - ((min(100vw, 160vh) - 95vh) / 2)));
   transition: all 1s ease-in-out;
 }
 @keyframes slideBack {
   0% {
     /* transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2))); */
-    transform: translateX(calc(0px - ((min(100%, 160vh) - 95vh) / 2)));
+    transform: translateX(calc(0px - ((min(100vw, 160vh) - 95vh) / 2)));
   }
   100% {
     transform: translateX(0);
@@ -471,40 +475,40 @@ button {
   position: absolute;
 }
 .pinOne {
-  top: 10vh;
-  right: calc((100% - 95vh) / 2 + 41vh);
+  top: 11%;
+  right: calc((100% - 95vh) / 2 + 43%);
 }
 .pinTwo {
-  bottom: 40vh;
-  right: calc((100% - 95vh) / 2 + 11vh);
+  bottom: 33%;
+  right: calc((100% - 95vh) / 2 + 12%);
 }
 .pinThree {
-  bottom: 45vh;
-  right: calc((100% - 95vh) / 2 + 2vh);
+  bottom: 39%;
+  right: calc((100% - 95vh) / 2 + 2%);
 }
 .pinFour {
-  bottom: 37vh;
-  right: calc((100% - 95vh) / 2 + 5vh);
+  bottom: 30%;
+  right: calc((100% - 95vh) / 2 + 5%);
 }
 .pinFive {
-  top: 9vh;
-  right: calc((100% - 95vh) / 2 + 18vh);
+  top: 10%;
+  right: calc((100% - 95vh) / 2 + 19%);
 }
 .pinSix {
-  bottom: 41vh;
-  right: calc((100% - 95vh) / 2 + 84vh);
+  bottom: 35%;
+  right: calc((100% - 95vh) / 2 + 88%);
 }
 .pinSeven {
-  bottom: 30vh;
-  right: calc((100% - 95vh) / 2 + 6.5vh);
+  bottom: 22.5%;
+  right: calc((100% - 95vh) / 2 + 6.5%);
 }
 .pinEight {
-  top: 17vh;
-  right: calc((100% - 95vh) / 2 + 60vh);
+  top: 19%;
+  right: calc((100% - 95vh) / 2 + 63%);
 }
 .pinNine {
-  top: 4vh;
-  right: calc((100% - 95vh) / 2 + 49vh);
+  top: 4%;
+  right: calc((100% - 95vh) / 2 + 51.5%);
 }
 
 /* player */

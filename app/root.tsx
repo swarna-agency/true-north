@@ -9,9 +9,15 @@ import {
 } from "@remix-run/react";
 
 import stylesheet from "./styles/main-style.css";
+import tabletStyle from "./styles/tablet-style.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
+  {
+    rel: "stylesheet",
+    href: tabletStyle,
+    media: "(max-width: 1024px) and (orientation: portrait)",
+  },
 ];
 
 export default function App() {

@@ -253,6 +253,7 @@ export const MainPage = () => {
               src="/images/map.png"
               alt="Map of Australia"
             />
+            {/* <div className="pinContainer"> */}
             <button
               className={`${pinClass} pinButton pinOne`}
               onClick={() => {
@@ -260,15 +261,9 @@ export const MainPage = () => {
               }}
               onMouseEnter={() => {
                 changeStatus("one", "hover");
-                // if (pinStatus.one !== "visited" && pinStatus.one !== "active") {
-                //   setPinStatus({ ...pinStatus, one: "hover" });
-                // }
               }}
               onMouseLeave={() => {
                 changeStatus("one", "default");
-                // if (pinStatus.one !== "visited" && pinStatus.one !== "active") {
-                //   setPinStatus({ ...pinStatus, one: "default" });
-                // }
               }}
             >
               <img className="pinImg" src={getPinImg(pinStatus.one)} alt="" />
@@ -385,6 +380,7 @@ export const MainPage = () => {
             >
               <img className="pinImg" src={getPinImg(pinStatus.nine)} alt="" />
             </button>
+            {/* </div> */}
           </div>
           <AudioPlayer
             trackNo={activePin}

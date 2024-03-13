@@ -1,0 +1,48 @@
+@keyframes zoomMap {
+  0% {
+    background-image: url("/images/map-icon-2.png");
+    background-size: 20vh;
+    height: 100vh;
+    background-position: top;
+  }
+  100% {
+    background-image: url("/images/map.png");
+    background-size: 90vw;
+    height: 100vh;
+    background-position: top;
+  }
+}
+
+.mapImg {
+  width: 90vw;
+}
+.pinImg {
+  width: 7vw;
+}
+.pinOne {
+  right: calc((100% - 90vw) / 2 + 43%);
+}
+.pinTwo {
+  right: calc((100% - 90vw) / 2 + 12%);
+}
+.pinThree {
+  right: calc((100% - 90vw) / 2 + 2%);
+}
+.pinFour {
+  right: calc((100% - 90vw) / 2 + 5%);
+}
+.pinFive {
+  right: calc((100% - 90vw) / 2 + 19%);
+}
+.pinSix {
+  right: calc((100% - 90vw) / 2 + 88%);
+}
+.pinSeven {
+  right: calc((100% - 90vw) / 2 + 6.5%);
+}
+.pinEight {
+  right: calc((100% - 90vw) / 2 + 63%);
+}
+.pinNine {
+  right: calc((100% - 90vw) / 2 + 51.5%);
+}
