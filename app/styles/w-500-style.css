@@ -41,6 +41,9 @@
   margin-top: calc(80vw * 3 / 2 - 80vw);
 }
 
+.audioPlayer {
+  height: calc(min(80vw, 400px) * 1.7);
+}
 p.locTxt {
   font-size: 20px;
 }
@@ -62,4 +65,7 @@ p.locTxt {
 .skipBtn svg {
   width: 24px;
   height: auto;
+}
+.trackTitle h2 {
+  font-size: 1rem;
 }

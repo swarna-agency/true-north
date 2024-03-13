@@ -61,6 +61,7 @@
 
 .footerIcons {
   justify-content: space-between;
+  gap: 0;
 }
 .sectionFooter div:first-child span {
   padding-left: 0;
