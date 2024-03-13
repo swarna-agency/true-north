@@ -467,6 +467,14 @@ button {
 /* Pins */
 .pinButton {
   border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0;
+  width: 4vh;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .pinImg {
   width: 6vh;
@@ -479,11 +487,11 @@ button {
   right: calc((100% - 95vh) / 2 + 43%);
 }
 .pinTwo {
-  bottom: 33%;
-  right: calc((100% - 95vh) / 2 + 12%);
+  bottom: 32%;
+  right: calc((100% - 95vh) / 2 + 10%);
 }
 .pinThree {
-  bottom: 39%;
+  bottom: 35.5%;
   right: calc((100% - 95vh) / 2 + 2%);
 }
 .pinFour {
@@ -499,7 +507,7 @@ button {
   right: calc((100% - 95vh) / 2 + 88%);
 }
 .pinSeven {
-  bottom: 22.5%;
+  bottom: 24%;
   right: calc((100% - 95vh) / 2 + 6.5%);
 }
 .pinEight {
