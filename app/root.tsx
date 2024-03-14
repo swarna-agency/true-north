@@ -1,4 +1,4 @@
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -32,23 +32,29 @@ export const links: LinksFunction = () => [
   },
 ];
 
+export const meta: MetaFunction = () => {
+  return [
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://true-north-neon.vercel.app" },
+    { property: "og:title", content: "The True North" },
+    {
+      property: "og:description",
+      content: "Check out The True North album player from Peter Garrett.",
+    },
+    {
+      property: "og:image",
+      content: "https://true-north-neon.vercel.app/images/link-preview.jpg",
+    },
+    { name: "twitter:card", content: "summary_large_image" },
+  ];
+};
+
 export default function App() {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* <meta property="og:url"           content="https://www.your-domain.com/your-page.html" /> */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="The True North" />
-        <meta
-          property="og:description"
-          content="Check out The True North album player from Peter Garrett."
-        />
-        <meta
-          property="og:image"
-          content="https://true-north-neon.vercel.app/images/link-preview.jpg"
-        />
         <Meta />
         <Links />
       </head>

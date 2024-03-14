@@ -343,6 +343,7 @@ button {
   color: #5d0000;
   width: 50%;
   max-width: 800px;
+  /* letter-spacing: -2px; */
 }
 
 .mapParagraph {
