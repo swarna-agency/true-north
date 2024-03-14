@@ -24,16 +24,12 @@ interface AudioPlayerProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   trackNo?: string;
   onClose: () => void;
-  // isReset: boolean;
   imgOverlayClass: string;
   setImgOverlayClass: Dispatch<SetStateAction<string>>;
   descOverlayClass: string;
   setDescOverlayClass: Dispatch<SetStateAction<string>>;
   bottomOverlay: string;
   setBottomOverlay: Dispatch<SetStateAction<string>>;
-
-  // isMute: boolean;
-  // setIsMute: Dispatch<SetStateAction<boolean>>;
   isPlaying: boolean;
   setIsPlaying: Dispatch<SetStateAction<boolean>>;
   onClickPin: (track: string) => void;
@@ -80,18 +76,14 @@ export const AudioPlayer = ({
   bottomOverlay,
   setBottomOverlay,
 
-  // isMute,
-  // setIsMute,
   isPlaying,
   setIsPlaying,
   onClickPin,
 }: AudioPlayerProps) => {
-  // const [isMute, setIsMute] = useState(true);
-  // const [isPlaying, setIsPlaying] = useState(false);
-
   const [progress, setProgress] = useState(0);
 
   const playerRef = useRef<HTMLAudioElement>(null);
+  const [tooltipClass, setTooltipClass] = useState("nodisplay");
 
   useEffect(() => {
     if (playerRef && playerRef.current) {
@@ -112,10 +104,6 @@ export const AudioPlayer = ({
         : !playerRef.current.paused
         ? playerRef.current.pause()
         : null;
-      // console.log(audioPaths[trackNo]);
-      // console.log("play ", isPlaying);
-
-      // console.log("mute", isMute);
     }
   }, [isPlaying]);
   return (
@@ -130,7 +118,6 @@ export const AudioPlayer = ({
           <button
             className="playerCloseBtn"
             onClick={() => {
-              // setIsPlaying(false);
               onClose();
             }}
           >
@@ -250,12 +237,6 @@ export const AudioPlayer = ({
                     : "00"}
                 </span>
               </div>
-              {/* Current time: {progress < 10 ? "0" : ""}
-              {progress}
-              Total duration: 0:
-              {typeof playerRef.current?.duration !== "undefined"
-                ? Math.floor(playerRef.current?.duration)
-                : "00"} */}
             </div>
             <div className="playerButtons">
               <button
@@ -269,7 +250,6 @@ export const AudioPlayer = ({
               <button
                 onClick={() => {
                   setIsPlaying(!isPlaying);
-                  // isMute ? setIsMute(false) : null;
                   playerRef.current ? (playerRef.current.volume = 0) : null;
                 }}
                 className="titleFont playBtn"
@@ -364,11 +344,16 @@ export const AudioPlayer = ({
                 <span>{websiteLink}</span>
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText(websiteLink);
+                    navigator.clipboard.writeText(`https://${websiteLink}`);
+                    setTooltipClass("copyTooltip");
+                    setTimeout(() => {
+                      setTooltipClass("nodisplay");
+                    }, 2500);
                   }}
                 >
                   <CopyIcon />
                 </button>
+                <div className={tooltipClass}>Copied to clipboard</div>
               </div>
             </div>
           </div>

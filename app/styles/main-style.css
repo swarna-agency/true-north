@@ -940,6 +940,31 @@ p.shareTxt {
   justify-content: center;
   align-items: center;
   gap: 24px;
+  position: relative;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.copyTooltip {
+  position: absolute;
+  top: 40px;
+  right: -20px;
+  padding: 4px 8px;
+  background-color: #ee6c4d;
+  font-size: 12px;
+  animation: appear 2s ease;
+  opacity: 0;
 }
 .shareLink button {
   height: 19px;

@@ -45,10 +45,10 @@ export default function App() {
           property="og:description"
           content="Check out The True North album player from Peter Garrett."
         />
-        {/* <meta
+        <meta
           property="og:image"
-          content="https://www.your-domain.com/images/cd-cover.png"
-        /> */}
+          content="https://true-north-neon.vercel.app/images/link-preview.jpg"
+        />
         <Meta />
         <Links />
       </head>
