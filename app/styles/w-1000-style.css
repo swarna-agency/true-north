@@ -6,6 +6,14 @@
     transform: translateY(0);
   }
 }
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-240px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
 
 .mobilenodisplay {
   display: none;
@@ -38,6 +46,7 @@
   padding: 60px 0 40px 0;
   background-color: #000;
   animation: slideDown 1s ease;
+  -webkit-animation: slideDown 1s ease;
 }
 
 .mobileMenu .closeMobileMenu {

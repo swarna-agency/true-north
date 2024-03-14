@@ -50,6 +50,7 @@ button {
 .albumImg {
   width: 300px;
   transition: all 1s ease;
+  -webkit-transition: all 1s ease;
 }
 .albumImg {
   filter: grayscale();
@@ -70,6 +71,7 @@ button {
   font-family: "Urbanist", system-ui;
   color: rgba(133, 133, 133, 1);
   transition: all 1s ease;
+  -webkit-transition: all 1s ease;
 }
 .ctaTextHover {
   color: #fff;
@@ -102,6 +104,24 @@ button {
     filter: none;
   }
 }
+@-webkit-keyframes enterSeq {
+  0% {
+    -webkit-transform: scale(1.2);
+    -webkit-filter: none;
+  }
+  25% {
+    -webkit-transform: scale(1.7) translateX(0);
+    -webkit-filter: none;
+  }
+  40% {
+    -webkit-transform: scale(1.7) translateX(0);
+    -webkit-filter: none;
+  }
+  100% {
+    -webkit-transform: scale(1.7) translateX(-60vw);
+    -webkit-filter: none;
+  }
+}
 @keyframes enterSeq2 {
   0% {
     transform: scale(1.2);
@@ -120,6 +140,24 @@ button {
     filter: none;
   }
 }
+@-webkit-keyframes enterSeq2 {
+  0% {
+    -webkit-transform: scale(1.2);
+    -webkit-filter: none;
+  }
+  25% {
+    -webkit-transform: scale(1.7) translateX(0);
+    -webkit-filter: none;
+  }
+  40% {
+    -webkit-transform: scale(1.7) translateX(10vw);
+    -webkit-filter: none;
+  }
+  100% {
+    -webkit-transform: scale(1.7) translateX(60vw);
+    -webkit-filter: none;
+  }
+}
 .albumButton,
 .albumImg {
   position: relative;
@@ -135,9 +173,11 @@ button {
 }
 .animateAlbum {
   animation: enterSeq 7s ease;
+  -webkit-animation: enterSeq 7s ease;
 }
 .animateVinyl {
   animation: enterSeq2 7s ease;
+  -webkit-animation: enterSeq2 7s ease;
 }
 /* .animateAlbum,
 .animateVinyl {
@@ -156,6 +196,7 @@ button {
   text-align: center;
   position: relative;
   animation: fadeIn2 3s ease-out;
+  -webkit-animation: fadeIn2 3s ease-out;
 }
 
 .bgImg {
@@ -216,6 +257,7 @@ button {
   max-width: 80vw;
   height: auto;
   transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
 
   display: flex;
   justify-content: center;
@@ -386,6 +428,7 @@ button {
 .mapButton img {
   /* opacity: 1; */
   transition: opacity 1s ease-in;
+  -webkit-transition: opacity 1s ease-in;
 }
 .mapButton p {
   font-family: "Abhaya Libre", system-ui;
@@ -408,6 +451,28 @@ button {
     background-size: 95vh;
     height: 100vh;
     background-position: top;
+  }
+}
+@-webkit-keyframes zoomMap {
+  0% {
+    background-image: url("/images/map-icon-2.png");
+    background-size: 20vh;
+    height: 100vh;
+    background-position: top;
+    /* -webkit-background-image: url("/images/map-icon-2.png");
+    -webkit-background-size: 20vh;
+    -webkit-height: 100vh;
+    -webkit-background-position: top; */
+  }
+  100% {
+    background-image: url("/images/map.png");
+    background-size: 95vh;
+    height: 100vh;
+    background-position: top;
+    /* -webkit-background-image: url("/images/map.png");
+    -webkit-background-size: 95vh;
+    -webkit-height: 100vh;
+    -webkit-background-position: top; */
   }
 }
 
@@ -441,6 +506,7 @@ button {
 
 .animateMap {
   animation: zoomMap 2.5s ease-in-out;
+  -webkit-animation: zoomMap 2.5s ease-in-out;
   /* animation-delay: 200ms; */
   height: 100vh;
 }
@@ -459,6 +525,8 @@ button {
   /* transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2))); */
   transform: translateX(calc(0px - ((min(100vw, 160vh) - 95vh) / 2)));
   transition: all 1s ease-in-out;
+  -webkit-transform: translateX(calc(0px - ((min(100vw, 160vh) - 95vh) / 2)));
+  -webkit-transition: all 1s ease-in-out;
 }
 @keyframes slideBack {
   0% {
@@ -469,8 +537,18 @@ button {
     transform: translateX(0);
   }
 }
+@-webkit-keyframes slideBack {
+  0% {
+    /* transform: translateX(calc(0px - ((min(100%, 1200px) - 95vh) / 2))); */
+    -webkit-transform: translateX(calc(0px - ((min(100vw, 160vh) - 95vh) / 2)));
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
 .mapSlideBack {
   animation: slideBack 1s ease-in-out;
+  -webkit-animation: slideBack 1s ease-in-out;
 }
 
 /* Pins */
@@ -573,6 +651,48 @@ button {
   }
 }
 
+@-webkit-keyframes fadeIn {
+  0% {
+    -webkit-opacity: 0;
+  }
+  100% {
+    -webkit-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn2 {
+  0% {
+    -webkit-opacity: 0.3;
+  }
+  100% {
+    -webkit-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    -webkit-opacity: 1;
+  }
+  100% {
+    -webkit-opacity: 0;
+  }
+}
+@-webkit-keyframes fadeOut2 {
+  0% {
+    -webkit-opacity: 1;
+  }
+  100% {
+    -webkit-opacity: 0.3;
+  }
+}
+@-webkit-keyframes slideLeft {
+  0% {
+    -webkit-opacity: 0;
+    -webkit-transform: translateX(80px);
+  }
+  100% {
+    -webkit-opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
 .audioPlayer {
   height: 70vh;
   width: 54vh;
@@ -584,6 +704,7 @@ button {
   align-items: center;
   overflow: hidden;
   animation: slideLeft 0.6s ease-out;
+  -webkit-animation: slideLeft 0.6s ease-out;
   font-family: "Urbanist", system-ui;
 }
 .imgOverlay {
@@ -673,6 +794,7 @@ p.locTxt {
 
   cursor: pointer;
   transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
 }
 .readMoreBtn:hover {
   color: #fff;
@@ -768,9 +890,9 @@ p.locTxt {
   display: flex;
   justify-content: space-between;
 }
-.playerDesc img {
+/* .playerDesc img {
   width: auto;
-}
+} */
 .moreButtons {
   display: flex;
   justify-content: flex-end;
@@ -802,6 +924,7 @@ p.locTxt {
   justify-content: center;
   font-size: 14px;
   transition: all 0.6s ease-out;
+  -webkit-transition: all 0.6s ease-out;
 }
 .streamBtn:hover {
   background: #d60f0f;
@@ -841,12 +964,15 @@ p.locTxt {
 }
 .fadeIn {
   animation: fadeIn 1s ease-out;
+  -webkit-animation: fadeIn 1s ease-out;
 }
 .fadeOut {
   animation: fadeOut 1s ease-out;
+  -webkit-animation: fadeOut 1s ease-out;
 }
 .fadeOut2 {
   animation: fadeOut2 2s ease-out;
+  -webkit-animation: fadeOut2 2s ease-out;
 }
 
 .closeDescBtn {
@@ -957,6 +1083,20 @@ p.shareTxt {
     opacity: 0;
   }
 }
+@-webkit-keyframes appear {
+  0% {
+    -webkit-opacity: 0;
+  }
+  20% {
+    -webkit-opacity: 1;
+  }
+  80% {
+    -webkit-opacity: 1;
+  }
+  100% {
+    -webkit-opacity: 0;
+  }
+}
 .copyTooltip {
   position: absolute;
   top: 40px;
@@ -965,6 +1105,7 @@ p.shareTxt {
   background-color: #ee6c4d;
   font-size: 12px;
   animation: appear 2s ease;
+  -webkit-animation: appear 2s ease;
   opacity: 0;
 }
 .shareLink button {
@@ -1056,6 +1197,7 @@ p.shareTxt {
 }
 .toTopBtn {
   transition: all 2s ease;
+  -webkit-transition: all 2s ease;
   font-family: "Urbanist", system-ui;
   font-size: 16px;
   display: flex;
@@ -1078,6 +1220,7 @@ p.shareTxt {
   background-color: rgba(236, 183, 143, 1);
 
   transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
   margin-bottom: 10px;
 }
 .upArrowInCircle {

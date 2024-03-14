@@ -34,6 +34,43 @@
     filter: none;
   }
 }
+
+@-webkit-keyframes enterSeq {
+  0% {
+    -webkit-transform: scale(1.2);
+    -webkit-filter: none;
+  }
+  25% {
+    -webkit-transform: scale(1.5) translateX(0);
+    -webkit-filter: none;
+  }
+  40% {
+    -webkit-transform: scale(1.5) translateX(0);
+    -webkit-filter: none;
+  }
+  100% {
+    -webkit-transform: scale(1.5) translateX(-60vw);
+    -webkit-filter: none;
+  }
+}
+@-webkit-keyframes enterSeq2 {
+  0% {
+    -webkit-transform: scale(1.2);
+    -webkit-filter: none;
+  }
+  25% {
+    -webkit-transform: scale(1.5) translateX(0);
+    -webkit-filter: none;
+  }
+  40% {
+    -webkit-transform: scale(1.5) translateX(10vw);
+    -webkit-filter: none;
+  }
+  100% {
+    -webkit-transform: scale(1.5) translateX(60vw);
+    -webkit-filter: none;
+  }
+}
 .titleName {
   font-size: 30px;
 }

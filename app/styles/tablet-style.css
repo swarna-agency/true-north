@@ -12,6 +12,20 @@
     background-position: top;
   }
 }
+@-webkit-keyframes zoomMap {
+  0% {
+    -webkit-background-image: url("/images/map-icon-2.png");
+    -webkit-background-size: 20vh;
+    -webkit-height: 100vh;
+    -webkit-background-position: top;
+  }
+  100% {
+    -webkit-background-image: url("/images/map.png");
+    -webkit-background-size: 90vw;
+    -webkit-height: 100vh;
+    -webkit-background-position: top;
+  }
+}
 .mobileAbsolute {
   position: absolute;
   top: 4vw;
@@ -67,6 +81,9 @@
   transform: none;
   transition: none;
   animation: none;
+  -webkit-transform: none;
+  -webkit-transition: none;
+  -webkit-animation: none;
 }
 .audioPlayer {
   position: absolute;

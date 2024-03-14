@@ -188,7 +188,12 @@ export const AudioPlayer = ({
           <>
             <div className="playerDesc">
               <div className="flexrow width75">
-                <img src="/images/cd-cover.png" alt="Album cover" />
+                <img
+                  src="/images/cd-cover.png"
+                  alt="Album cover"
+                  width="50px"
+                  height="52px"
+                />
                 <div className="trackTitle">
                   <h2>{trackTitles[trackNo]}</h2>
                   <p>Peter Garrett</p>
