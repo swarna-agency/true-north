@@ -46,8 +46,8 @@ export const Opening = ({
             src="/images/vinyl.png"
             alt="The True North vinyl"
           />
+          <p className={ctaTextClass}>Click to Start</p>
         </button>
-        <p className={ctaTextClass}>Click to Start</p>
       </div>
     </div>
   );
