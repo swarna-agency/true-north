@@ -105,6 +105,32 @@ export const AudioPlayer = ({
         : null;
     }
   }, [isPlaying]);
+  useEffect(() => {
+    isPlaying && playerRef.current
+      ? playerRef.current
+          .play()
+          .then(() => {
+            if (playerRef.current?.muted) {
+              playerRef.current.muted = false;
+            }
+          })
+          .catch((e) => {
+            console.log(e);
+          })
+      : null;
+  });
+
+  const handleSkipBack = () => {
+    // check timing
+    if (progress > 0) {
+      playerRef.current && playerRef.current.currentTime
+        ? (playerRef.current.currentTime = 0)
+        : null;
+    } else {
+      onClickPin(prev[trackNo]);
+    }
+  };
+
   return (
     <div className={className}>
       <div className={`playerImg track${trackNo}Img`}>
@@ -246,7 +272,7 @@ export const AudioPlayer = ({
               <button
                 className="skipBtn"
                 onClick={() => {
-                  onClickPin(prev[trackNo]);
+                  handleSkipBack();
                 }}
               >
                 <SkipBackIcon />

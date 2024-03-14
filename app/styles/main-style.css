@@ -422,6 +422,7 @@ button {
   flex-direction: column;
 }
 .width75 {
+  width: 300px;
   max-width: 75%;
 }
 

@@ -111,7 +111,7 @@ export const MainPage = () => {
       }
       // audio player is open on another track
       else {
-        setIsPlaying(false);
+        // setIsPlaying(false);
         setBottomOverlay("default");
         setPinStatus({
           ...pinStatus,
