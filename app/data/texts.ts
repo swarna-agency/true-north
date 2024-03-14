@@ -1,16 +1,16 @@
 export const trackStory: { [char: string]: string } = {
-  one: "Madjedbebe on the South Alligator floodplain at Kakadu: The site of the oldest verified human occupation in Australia, 64,000 years, which I visited recently. And it also happens to be on the Jabiluka mining lease which is trenchantly opposed by traditional owners, and hence should not be renewed.",
+  one: "Madjedbebe on the South Alligator floodplain at Kakadu: The site of the oldest verified human occupation in Australia, 64,000 years, which I visited recently. And it also happens to be on the Jabiluka mining lease which is trenchantly opposed by traditional owners, and hence must not be renewed.",
   two: "Sydney Cricket Ground: Hallowed ground to dip into the memory pool. Garretts playing cricket in the early days, and a hundred years later music. Steve Waugh’s century. Weekend suspension of life’s burdens and the joy of a Swans mark, even on elections days - sport and politics must mix.",
   three:
-    "Manly Beach: A second home of sorts over many years. Evocative, much visited and emblematic of our way of life. Still a thousand miles from care …?",
+    "Manly Beach: A second home of sorts over many years. Evocative, much visited and emblematic of our way of life. Still a thousand miles from care or right at the junction of present risks and future promise if we don’t stop companies burning fossil fuels immediately.",
   four: "Woollies Car park Double Bay: Enter at your own risk. In one of the highest earning postcodes in Australia, car parking spots for big luxury vehicles are aggressively contested as tho' lives & status depends on getting in first, I barely got out alive.",
   five: "Shelburne Bay Cape York: Wuthathi country, with the most extraordinary and beautiful coastal sand dunes. Here people have fought to protect their natural environment for decades.",
-  six: "Is this the life we were meant to enjoy or is it just urban decay? Kids on sports field, in exam rooms, people stressing over iPhones. Push yourself so hard it hurts. See the damage in reverse…",
+  six: "Is this the life we were meant to enjoy or is it just urban overload? Kids on sports field, in exam rooms, people stressing over iPhones. Push yourself so hard it hurts. See the damage in reverse…",
   seven:
     "Located in the Eurobodalla Shire in Southern NSW and on the lands of the Walbanga people, where once an Aboriginal land reserve was set aside by the banks of the Currowan Creek. Absolutely decimated by bushfires more recently, taking lives and wiping out an abundance of wildlife.",
   eight:
     "Kimberley WA Fitzroy River (Martuwarra). Having drifted across these parts it’s easy to understand why many people are appalled at the prospects of damming a free-flowing river for cotton or other marginal agriculture. This river is healthy and provides sustenance and meaning for people right along its often-wild journey to the sea.",
-  nine: "Darwin harbour terminals. Almost out of sight and mind yet set to become a major natural gas export hub, turbo charging the climate crisis and frying the planet. I gazed over the otherwise tranquil harbour for a long week when confined by Covid on our last tour.",
+  nine: "Darwin harbour terminals. Almost out of sight and mind yet set to become a major natural gas export hub, turbo charging the climate crisis and frying the planet. I gazed over the otherwise tranquil harbour for a long week when confined by Covid on the last Oils tour.",
 };
 
 export const trackTitles: { [char: string]: string } = {

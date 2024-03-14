@@ -214,7 +214,8 @@ export const MainPage = () => {
         <p className="heroParagraph">
           A deeply personal reflection and musical journey, drawing inspiration
           and sustenance from the living colours of Australia’s natural
-          environment and the sights and sounds of modern Oz.
+          environment, home to Aboriginal & Torres Strait Islander peoples: an
+          embodiment of the sights and sounds of modern Oz.
         </p>
       </div>
       <div className="sectionWave">
@@ -242,7 +243,7 @@ export const MainPage = () => {
         </div>
         <div className="mapParagraph">
           The record aims to highlight environmental hot spots in Northern
-          Australia, but the music and title reach broader… so leaning into the
+          Australia, but the music and title reach broader… leaning into the
           navigational meaning of true north but also referencing one’s moral
           compass with both geographic and philosophical meaning.
         </div>
