@@ -318,7 +318,7 @@ export const AudioPlayer = ({
                   className="socialBtn"
                   target="_blank"
                   rel="noreferrer"
-                  href={`https://facebook.com/share.php?u=${websiteLink}`}
+                  href={`https://facebook.com/share.php?u=https://${websiteLink}`}
                 >
                   <FacebookIcon />
                 </a>
@@ -326,7 +326,7 @@ export const AudioPlayer = ({
                   className="socialBtn"
                   target="_blank"
                   rel="noreferrer"
-                  href={`https://twitter.com/intent/tweet?url=${websiteLink}&text=Check%20out%20The%20True%20North%20album%20player%20from%20Peter%20Garrett`}
+                  href={`https://twitter.com/intent/tweet?url=https://${websiteLink}&text=Check%20out%20The%20True%20North%20album%20player%20from%20Peter%20Garrett`}
                 >
                   <TwitterIcon />
                 </a>
@@ -334,7 +334,7 @@ export const AudioPlayer = ({
                   className="socialBtn wa"
                   target="_blank"
                   rel="noreferrer"
-                  href={`https://wa.me?text=Check%20out%20The%20True%20North%20album%20player%20from%20Peter%20Garrett ${websiteLink}`}
+                  href={`https://wa.me?text=Check%20out%20The%20True%20North%20album%20player%20from%20Peter%20Garrett.%20https://${websiteLink}`}
                 >
                   <WhatsappIcon />
                 </a>
