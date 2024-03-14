@@ -48,7 +48,7 @@ export const MainPage = () => {
 
   const animationRef = useRef<HTMLDivElement>(null);
   const mapSectionRef = useRef<HTMLDivElement>(null);
-  const playerRef = useRef<HTMLDivElement>(null);
+  // const playerRef = useRef<HTMLDivElement>(null);
 
   const initialStatus: { [char: string]: string } = {
     one: "default",
@@ -67,8 +67,6 @@ export const MainPage = () => {
   const [descOverlayClass, setDescOverlayClass] = useState("nodisplay");
   const [bottomOverlay, setBottomOverlay] = useState("default");
 
-  // const [isMute, setIsMute] = useState(true);
-  // const [totalDuration, setTotalDuratio] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const [mobileMenuClass, setMobileMenuClass] = useState("mobilenodisplay");
@@ -131,17 +129,12 @@ export const MainPage = () => {
     }
   };
 
-  const changeStatus = (trackNo: string, newStatus: string) => {
+  // for hover only
+  const changeStatus = async (trackNo: string, newStatus: string) => {
     if (pinStatus[trackNo] !== "visited" && pinStatus[trackNo] !== "active") {
-      setPinStatus({ ...pinStatus, [trackNo]: newStatus });
+      setPinStatus((prevState) => ({ ...prevState, [trackNo]: newStatus }));
     }
   };
-
-  // useEffect(() => {
-  //   if (window.innerWidth < 500) {
-  //     setNeedScroll(true);
-  //   }
-  // }, []);
 
   return (
     <div className={`mainPage ${stopScroll}`}>
@@ -307,10 +300,12 @@ export const MainPage = () => {
               onClick={() => {
                 onClickPin("two");
               }}
-              onMouseEnter={() => {
+              onMouseOver={() => {
                 changeStatus("two", "hover");
               }}
-              onMouseLeave={() => {
+              onFocus={() => {}}
+              onBlur={() => {}}
+              onMouseOut={() => {
                 changeStatus("two", "default");
               }}
             >
@@ -417,7 +412,6 @@ export const MainPage = () => {
             {/* </div> */}
           </div>
           <AudioPlayer
-            ref={playerRef}
             trackNo={activePin}
             className={playerClass}
             onClose={closePlayer}

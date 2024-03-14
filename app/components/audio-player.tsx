@@ -65,7 +65,6 @@ const prev: { [char: string]: string } = {
 };
 
 export const AudioPlayer = ({
-  ref,
   trackNo = "one",
   className,
   onClose,
@@ -107,7 +106,7 @@ export const AudioPlayer = ({
     }
   }, [isPlaying]);
   return (
-    <div className={className} ref={ref}>
+    <div className={className}>
       <div className={`playerImg track${trackNo}Img`}>
         <div className={imgOverlayClass}>
           {/* <div className="barDecor">
