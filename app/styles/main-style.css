@@ -1120,7 +1120,6 @@ p.shareTxt {
 .timeTxt {
   display: flex;
   justify-content: space-between;
-  padding-top: 4px;
 
   color: #fff;
   font-size: 12px;
@@ -1131,6 +1130,68 @@ p.shareTxt {
   height: 3.6px;
   border-radius: 20px;
   background: rgba(94, 90, 90, 1);
+}
+input#seekbar {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  /* --progress-width: 10%; */
+  /* color: #000; */
+}
+input#seekbar::-webkit-slider-runnable-track {
+  /* background-color: rgba(94, 90, 90, 1); */
+  height: 4px;
+  width: 100%;
+  border-radius: 20px;
+  /* --progress-width: 10%; */
+  background: linear-gradient(
+    to right,
+    rgba(82, 215, 191, 1),
+    rgba(82, 215, 191, 1) var(--progress-width),
+    rgba(94, 90, 90, 1) var(--progress-width)
+  );
+  /* background: linear-gradient(
+    to right,
+    rgba(82, 215, 191, 1),
+    rgba(82, 215, 191, 1) 20%,
+    rgba(94, 90, 90, 1) 20%
+  ); */
+}
+input#seekbar::-moz-range-track {
+  background-color: rgba(94, 90, 90, 1);
+  height: 4px;
+  border-radius: 20px;
+}
+input#seekbar::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -3.5px; /* Centers thumb on the track */
+  /* background-color: rgba(82, 215, 191, 1); */
+  background-color: #fff;
+  border-radius: 50%;
+  width: 11px;
+  height: 11px;
+}
+input#seekbar:active::-webkit-slider-thumb {
+  background: rgba(82, 215, 191, 1);
+}
+input#seekbar::-moz-range-thumb {
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 50%;
+  /* background-color: rgba(82, 215, 191, 1); */
+  background-color: #fff;
+  width: 11px;
+  height: 11px;
+}
+input#seekbar:active::-moz-range-thumb {
+  background: rgba(82, 215, 191, 1);
+}
+input#seekbar::-moz-range-progress {
+  background-color: rgba(82, 215, 191, 1);
 }
 .progressBar {
   position: absolute;

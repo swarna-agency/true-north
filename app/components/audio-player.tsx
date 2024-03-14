@@ -1,4 +1,5 @@
 import {
+  CSSProperties,
   DetailedHTMLProps,
   Dispatch,
   HTMLAttributes,
@@ -35,9 +36,13 @@ interface AudioPlayerProps
   onClickPin: (track: string) => void;
 }
 
-const getProgressWidth = (progress: number) => {
-  return Math.floor((progress / 30) * 100) + 1;
-};
+interface CustomCSSProps extends CSSProperties {
+  "--progress-width": string;
+}
+
+// const getProgressWidth = (progress: number) => {
+//   return Math.floor((progress / 30) * 100);
+// };
 
 const websiteLink = "true-north-neon.vercel.app";
 
@@ -80,9 +85,18 @@ export const AudioPlayer = ({
   onClickPin,
 }: AudioPlayerProps) => {
   const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   const playerRef = useRef<HTMLAudioElement>(null);
+  const seekbarRef = useRef<HTMLInputElement>(null);
+
   const [tooltipClass, setTooltipClass] = useState("nodisplay");
+
+  const getProgressPosition = () => {
+    if (!duration || duration < 10)
+      return Math.floor((progress / 30) * 100) + 1;
+    return Math.floor((progress / duration) * 100) + 1;
+  };
 
   useEffect(() => {
     if (playerRef && playerRef.current) {
@@ -104,6 +118,7 @@ export const AudioPlayer = ({
         ? playerRef.current.pause()
         : null;
     }
+    playerRef.current ? setDuration(playerRef.current.duration) : null;
   }, [isPlaying]);
   useEffect(() => {
     isPlaying && playerRef.current
@@ -196,6 +211,7 @@ export const AudioPlayer = ({
               ? Math.floor(playerRef.current?.currentTime)
               : 0
           );
+          // setProgressPosition(`${getProgressWidth(progress)}%`);
           if (playerRef.current && playerRef.current.currentTime <= 12) {
             playerRef.current.volume =
               (playerRef.current.currentTime / 5) * 0.4;
@@ -205,10 +221,7 @@ export const AudioPlayer = ({
             playerRef.current.volume = 1;
           }
         }}
-      >
-        {/* <source src={audioPaths[trackNo]} type="audio/mp3" />
-        Your browser does not support the audio element. */}
-      </audio>
+      ></audio>
       <div className="playerCtrl">
         {bottomOverlay === "default" ? (
           <>
@@ -245,16 +258,35 @@ export const AudioPlayer = ({
               </div>
             </div>
             <div>
-              <div className="bar">
-                <div
-                  className="progressBar"
-                  style={{ width: `${getProgressWidth(progress)}%` }}
-                >
-                  <div className="circlePoint">
-                    <div className="circleShadow" />
-                  </div>
-                </div>
-              </div>
+              <input
+                ref={seekbarRef}
+                id="seekbar"
+                name="seekbar"
+                type="range"
+                min="0"
+                max={
+                  playerRef.current && playerRef.current.duration
+                    ? Math.floor(playerRef.current?.duration)
+                    : "0"
+                }
+                step="1"
+                value={progress}
+                onInput={() => {
+                  playerRef.current &&
+                  playerRef.current.currentTime &&
+                  seekbarRef.current?.value
+                    ? (playerRef.current.currentTime = Number(
+                        seekbarRef.current?.value
+                      ))
+                    : null;
+                }}
+                style={
+                  {
+                    "--progress-width": `${getProgressPosition()}%`,
+                  } as CustomCSSProps
+                }
+              />
+
               <div className="timeTxt">
                 <span>
                   0:{progress < 10 ? "0" : ""}
@@ -262,7 +294,7 @@ export const AudioPlayer = ({
                 </span>
                 <span>
                   0:
-                  {typeof playerRef.current?.duration !== "undefined"
+                  {playerRef.current && playerRef.current.duration
                     ? Math.floor(playerRef.current?.duration)
                     : "00"}
                 </span>
