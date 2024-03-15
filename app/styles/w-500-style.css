@@ -82,6 +82,15 @@
   width: 150px;
 }
 
+/* .albumButton {
+  margin-bottom: 160px;
+}
+.acknowledgement {
+  height: 160px;
+} */
+.acknowledgement p {
+  font-size: 12px;
+}
 .bgImg {
   max-width: 100vw;
   top: 0;

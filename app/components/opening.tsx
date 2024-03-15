@@ -48,6 +48,19 @@ export const Opening = ({
           />
           <p className={ctaTextClass}>Click to Start</p>
         </button>
+        <div className="acknowledgement">
+          <p>
+            We acknowledge and pay respect to the traditional owners of the land
+            on which we live and we extend that respect to Elders past and
+            present.
+            {/* </p>
+          <p> */}
+            We celebrate the culture, stories and traditions of Aboriginal and
+            Torres Strait Islander people and we recognise the immeasurable
+            influence our First Nations people continue to have on the music and
+            art we all enjoy.
+          </p>
+        </div>
       </div>
     </div>
   );

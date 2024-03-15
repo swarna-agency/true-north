@@ -26,6 +26,16 @@
     -webkit-background-position: top;
   }
 }
+
+.albumButton {
+  margin-bottom: 140px;
+}
+.acknowledgement {
+  height: 140px;
+}
+.acknowledgement p {
+  width: 90%;
+}
 .mobileAbsolute {
   position: absolute;
   top: 4vw;
