@@ -225,7 +225,7 @@ export const MainPage = () => {
           }}
         >
           {isArrowHover ? <ArrowHoverIcon /> : <ArrowDownIcon />}
-          <span>Explore the True North Sound</span>
+          <span>Explore The True North Sound</span>
         </button>
       </div>
       <div className="sectionDebris"></div>
