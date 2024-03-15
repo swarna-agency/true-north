@@ -71,6 +71,10 @@
     -webkit-filter: none;
   }
 }
+
+.opening {
+  background-position: 0 calc(100vh - 250px);
+}
 .titleName {
   font-size: 30px;
 }

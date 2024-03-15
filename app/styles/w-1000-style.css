@@ -19,6 +19,9 @@
   display: none;
 }
 
+.opening {
+  background-position: 0 calc(100vh - 380px);
+}
 .albumButton,
 .albumImg {
   width: 200px;
