@@ -3,14 +3,14 @@ export const trackStory: { [char: string]: string } = {
   two: "Sydney Cricket Ground: Hallowed ground to dip into the memory pool. Garretts playing cricket in the early days, and a hundred years later music. Steve Waugh’s century. Weekend suspension of life’s burdens and the joy of a Swans mark, even on elections days - sport and politics must mix.",
   three:
     "Manly Beach: A second home of sorts over many years. Evocative, much visited and emblematic of our way of life. Still a thousand miles from care or right at the junction of present risks and future promise if we don’t stop companies burning fossil fuels immediately.",
-  four: "Woollies Car park Double Bay: Enter at your own risk. In one of the highest earning postcodes in Australia, car parking spots for big luxury vehicles are aggressively contested as tho' lives & status depends on getting in first, I barely got out alive.",
+  four: "Woollies Car Park Double Bay: Enter at your own risk. In one of the highest earning postcodes in Australia, car parking spots for big luxury vehicles are aggressively contested as tho' lives & status depends on getting in first, I barely got out alive.",
   five: "Shelburne Bay Cape York: Wuthathi country, with the most extraordinary and beautiful coastal sand dunes. Here people have fought to protect their natural environment for decades.",
   six: "Is this the life we were meant to enjoy or is it just urban overload? Kids on sports field, in exam rooms, people stressing over iPhones. Push yourself so hard it hurts. See the damage in reverse…",
   seven:
     "Located in the Eurobodalla Shire in Southern NSW, the Currowan fire front of 2019/2020, turbo charged by a warming climate, headed north taking lives and wiping out an abundance of wildlife.",
   eight:
     "Kimberley WA Fitzroy River (Martuwarra). Having drifted across these parts it’s easy to understand why many people are appalled at the prospects of damming a free-flowing river for cotton or other marginal agriculture. This river is healthy and provides sustenance and meaning for people right along its often-wild journey to the sea.",
-  nine: "Darwin harbour terminals. Almost out of sight and mind yet set to become a major natural gas export hub, turbo charging the climate crisis and frying the planet. I gazed over the otherwise tranquil harbour for a long week when confined by Covid on the last Oils tour.",
+  nine: "Darwin Harbour terminals. Almost out of sight and mind yet set to become a major natural gas export hub, turbo charging the climate crisis and frying the planet. I gazed over the otherwise tranquil harbour for a long week when confined by Covid on the last Oils tour.",
 };
 
 export const trackTitles: { [char: string]: string } = {
@@ -30,7 +30,7 @@ export const trackLocations: { [char: string]: string } = {
   two: "Sydney Cricket Ground, NSW",
   three: "Manly Beach, NSW",
   four: "Double Bay, Sydney NSW",
-  five: "Shellburne Bay, Cape York QLD",
+  five: "Shelburne Bay, Cape York QLD",
   six: "Perth, WA",
   seven: "Currowan, South Coast, NSW",
   eight: "Fitzroy River (Martuwarra), WA",

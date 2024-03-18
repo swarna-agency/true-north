@@ -73,7 +73,7 @@
 }
 
 .opening {
-  background-position: 0 calc(100vh - 250px);
+  background-position: 0 calc(100vh - 290px);
 }
 .titleName {
   font-size: 30px;
@@ -85,13 +85,9 @@
 .vinylImg {
   width: 150px;
 }
-
-/* .albumButton {
-  margin-bottom: 160px;
-}
 .acknowledgement {
-  height: 160px;
-} */
+  margin-bottom: 40px;
+}
 .acknowledgement p {
   font-size: 12px;
 }
