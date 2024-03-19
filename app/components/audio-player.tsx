@@ -44,7 +44,7 @@ interface CustomCSSProps extends CSSProperties {
 //   return Math.floor((progress / 30) * 100);
 // };
 
-const websiteLink = "true-north-neon.vercel.app";
+const websiteLink = "thetruenorth.petergarrett.com.au";
 
 const next: { [char: string]: string } = {
   one: "two",
@@ -91,6 +91,7 @@ export const AudioPlayer = ({
   const seekbarRef = useRef<HTMLInputElement>(null);
 
   const [tooltipClass, setTooltipClass] = useState("nodisplay");
+  const [isMobile, setIsMobile] = useState(false);
 
   const getProgressPosition = () => {
     if (!duration || duration < 10)
@@ -99,6 +100,9 @@ export const AudioPlayer = ({
   };
 
   useEffect(() => {
+    if (window.innerWidth < 550) {
+      setIsMobile(true);
+    }
     if (playerRef && playerRef.current) {
       // isMute
       //   ? (playerRef.current.muted = true)
@@ -403,7 +407,7 @@ export const AudioPlayer = ({
               </div>
               <p className="shareTxt">Or share with link</p>
               <div className="shareLink">
-                <span>{websiteLink}</span>
+                <span>{isMobile ? "thetruenorth.peter..." : websiteLink}</span>
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText(`https://${websiteLink}`);
