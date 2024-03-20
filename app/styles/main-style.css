@@ -834,7 +834,7 @@ p.locTxt {
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
 }
 .trackfourImg {
-  background-image: url("/images/player/04-img.jpeg"),
+  background-image: url("/images/player/04-img.jpg"),
     linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   background-size: 100% 100%;
 }
