@@ -86,10 +86,13 @@
   width: 150px;
 }
 .acknowledgement {
-  margin-bottom: 40px;
+  /* margin-bottom: 60px; */
+  height: 180px;
+  align-items: flex-start;
 }
 .acknowledgement p {
   font-size: 12px;
+  padding-top: 16px;
 }
 .bgImg {
   max-width: 100vw;
