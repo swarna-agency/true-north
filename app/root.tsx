@@ -39,20 +39,7 @@ export const links: LinksFunction = () => [
 ];
 
 export const meta: MetaFunction = () => {
-  return [
-    { property: "og:type", content: "website" },
-    { property: "og:url", content: "https://true-north-neon.vercel.app" },
-    { property: "og:title", content: "The True North" },
-    {
-      property: "og:description",
-      content: "Check out The True North album player from Peter Garrett.",
-    },
-    {
-      property: "og:image",
-      content: "https://true-north-neon.vercel.app/images/link-preview.jpg",
-    },
-    { name: "twitter:card", content: "summary_large_image" },
-  ];
+  return [];
 };
 
 export default function App() {

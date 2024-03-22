@@ -10,6 +10,19 @@ export const meta: MetaFunction = () => {
       name: "description",
       content: "Check out The True North album player from Peter Garrett.",
     },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://thetruenorth.petergarrett.com.au" },
+    { property: "og:title", content: "The True North" },
+    {
+      property: "og:description",
+      content: "Check out The True North album player from Peter Garrett.",
+    },
+    {
+      property: "og:image",
+      content:
+        "https://thetruenorth.petergarrett.com.au/images/link-preview.jpg",
+    },
+    { name: "twitter:card", content: "summary_large_image" },
   ];
 };
 
